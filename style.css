@@ -586,3 +586,19 @@ footer {
     }
 
 }
+/* Student Login Button */
+.login-btn {
+    background: #e63946;
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #c92e3a;
+    transform: translateY(-2px);
+}
