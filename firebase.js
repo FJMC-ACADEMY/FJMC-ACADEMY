@@ -17,17 +17,19 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyDP4fDjIdc7MENDhG1oeHRtBiQ4RCS_fzk",
 
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    authDomain: "fjmc-academy.firebaseapp.com",
 
-    projectId: "YOUR_PROJECT_ID",
+    projectId: "fjmc-academy",
 
-    storageBucket: "YOUR_PROJECT.firebasestorage.app",
+    storageBucket: "fjmc-academy.firebasestorage.app",
 
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    messagingSenderId: "251378819994",
 
-    appId: "YOUR_APP_ID"
+    appId: "1:251378819994:web:0db31e0cf277686e475023"
+
+    measurementId: "G-TNCX8J9VZ7"
 
 };
 
