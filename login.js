@@ -39,6 +39,7 @@ form.addEventListener("submit", async function(e) {
         console.error(error);
 
         message.innerText =
+            alert
             "Invalid email or password.";
 
     }
