@@ -6,13 +6,13 @@ import {
 
 
 const form = document.getElementById("loginForm");
-
 const message = document.getElementById("loginMessage");
 
 
 form.addEventListener("submit", async function(e) {
 
     e.preventDefault();
+
 
     const email =
         document.getElementById("email").value.trim();
@@ -21,44 +21,46 @@ form.addEventListener("submit", async function(e) {
         document.getElementById("password").value;
 
 
+    message.innerText = "Logging in...";
+
+
     try {
 
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
+        const userCredential =
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+        console.log(
+            "LOGIN SUCCESS:",
+            userCredential.user.uid
         );
 
+
+        message.innerText =
+            "Login successful!";
+
+
+        // Go to student dashboard
         window.location.href =
             "dashboard.html";
 
-    }
-try {
-    const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-    );
 
-    console.log("LOGIN SUCCESS:", userCredential.user.uid);
+    } catch (error) {
 
-    window.location.href = "dashboard.html";
+        console.error(
+            "LOGIN ERROR:",
+            error.code,
+            error.message
+        );
 
-} catch (error) {
-
-    console.error("LOGIN ERROR:", error.code, error.message);
-
-    document.getElementById("errorMessage").innerText =
-        error.message;
-}
-
-    catch(error) {
-
-        console.error(error);
 
         message.innerText =
-            alert
-            "Invalid email or password.";
+            "Login failed: " +
+            error.message;
 
     }
 
