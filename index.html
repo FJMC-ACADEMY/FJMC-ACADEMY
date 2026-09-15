@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FJMC Academy - Premium Learning Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- 1. ALERT BANNER -->
+    <div class="alert-banner">
+        <p><i class="fa-solid fa-triangle-exclamation"></i> FJMC Academy never contact you for any personal information or OTP. Please avoid such Calls / Msg.</p>
+    </div>
+
+    <!-- 2. NAVIGATION HEADER -->
+    <header class="main-header">
+        <div class="logo-area">FJMC Academy</div>
+        <nav class="navbar">
+            <a href="#" class="nav-link active">HOME</a>
+            <a href="#" class="nav-link">COURSE/PROGRAMME</a>
+            <a href="#" class="nav-link">FACILITIES</a>
+            <a href="#" class="nav-link">CONTACT</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">IMPORTANT LINKS <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="login.html"><i class="fa-solid fa-user-graduate"></i> Student Login</a>
+                    <a href="admin.html"><i class="fa-solid fa-user-shield"></i> Admin Panel</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 3. HERO BANNER SECTION -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <span class="badge">Regular Classroom Program</span>
+            <h1>IIT JAM <span>Maths</span></h1>
+            <div class="year-tag">2027</div>
+        </div>
+        <div class="batch-box">
+            <h3>Batch Starting</h3>
+            <div class="date-tag">5th December 2026</div>
+            <p>mode</p>
+            <small>(Online )</small>
+        </div>
+    </section>
+
+    <!-- 4. DYNAMIC COURSES SECTION -->
+    <section class="section-container">
+        <h2 class="section-title">OUR COURSES PROGRAMME</h2>
+        <div class="grid-container" id="courses-grid">
+            <!-- डेटा Firebase से लोड होकर यहाँ आएगा -->
+            <p class="loading">Loading Courses...</p>
+        </div>
+    </section>
+
+    <!-- 5. BOOKS SECTION -->
+    <section class="section-container">
+        <h2 class="section-title">OUR BOOKS</h2>
+        <div class="grid-container" id="books-grid">
+            <!-- डेटा Firebase से लोड होकर यहाँ आएगा -->
+            <p class="loading">Loading Books...</p>
+        </div>
+    </section>
+
+    <!-- 6. TOP RANKERS SECTION -->
+    <section class="section-container rankers-bg">
+        <h2 class="section-title text-white">Top Rankers</h2>
+        <div class="grid-container" id="rankers-grid">
+            <!-- डेटा Firebase से लोड होकर यहाँ आएगा -->
+            <p class="loading">Loading Rankers...</p>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS SECTION -->
+    <section class="section-container">
+        <h2 class="section-title">STUDENT TESTIMONIALS</h2>
+        <div class="grid-container" id="testimonials-grid">
+            <!-- डेटा Firebase से लोड होकर यहाँ आएगा -->
+            <p class="loading">Loading Reviews...</p>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>COURSES</h4>
+                <p>CSIR NET MATH</p>
+                <p>IIT JAM MATH</p>
+                <p>GATE MATH</p>
+            </div>
+            <div>
+                <h4>QUICK LINKS</h4>
+                <p><a href="login.html" style="color:#aaa;">Student Login</a></p>
+                <p>Upcoming Batches</p>
+                <p>Pay Fee</p>
+            </div>
+            <div>
+                <h4>CONTACT US</h4>
+                <p>Jaipur, Rajasthan 303007</p>
+                <p>+91-7976753219</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. FIXED BOTTOM NAVIGATION BAR -->
+    <div class="fixed-bottom-bar">
+        <a href="#" class="bottom-btn bg-orange"><i class="fa-solid fa-pen-to-square"></i> Test Series</a>
+        <a href="#" class="bottom-btn bg-blue"><i class="fa-solid fa-graduation-cap"></i> Courses</a>
+        <a href="#" class="bottom-btn bg-green"><i class="fa-solid fa-calendar-check"></i> Batches</a>
+        <a href="#" class="bottom-btn bg-red"><i class="fa-solid fa-indian-rupee-sign"></i> Pay Fee</a>
+        <a href="login.html" class="bottom-btn bg-darkblue"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+    </div>
+
+    <!-- FIREBASE AND CORE LOGIC SCRIPTS -->
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

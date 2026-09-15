@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | FJMC Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-area">Student Dashboard</div>
+        <button id="logoutBtn" style="background:#111827; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer; font-weight:bold;">Sign Out</button>
+    </header>
+
+    <div style="padding:40px 5%;">
+        <h2>Welcome Back, <span id="userWelcome" style="color:#e11d48;">Student</span></h2>
+        <p style="margin-bottom:30px;">Access your assigned online classes, video materials, and e-books below.</p>
+
+        <h3 style="margin-bottom:20px; border-bottom:2px solid #e11d48; display:inline-block; padding-bottom:5px;">Assigned Videos & Content</h3>
+        <div class="grid-container" id="dashboard-content-grid"></div>
+    </div>
+
+    <script type="module">
+        import { auth, db } from './firebase.js';
+        import { onAuthStateChanged, signOut } from "https://gstatic.com";
+        import { collection, getDocs } from "https://gstatic.com";
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                document.getElementById("userWelcome").innerText = user.email;
+                
+                // Fetch assigned content/videos uploaded by Admin
+                const querySnapshot = await getDocs(collection(db, "contents"));
+                const contentGrid = document.getElementById("dashboard-content-grid");
+                contentGrid.innerHTML = "";
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    contentGrid.innerHTML += `
+                        <div class="card">
+                            <h3 style="margin-bottom:10px; color:#111827;">${data.title}</h3>
+                            <p style="margin-bottom:15px; font-size:14px;">Type: <strong>${data.type.toUpperCase()}</strong></p>
+                            <a href="${data.url}" target="_blank" style="background:#e11d48; color:white; text-decoration:none; padding:10px 15px; border-radius:4px; display:inline-block; font-weight:bold; font-size:14px;"><i class="fa-solid fa-circle-play"></i> Open Material / Video</a>
+                        </div>
+                    `;
+                });
+            } else {
+                window.location.href = "login.html"; // If not logged in, boot to login
+            }
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            signOut(auth).then(() => window.location.href = "login.html");
+        });
+    </script>
+</body>
+</html>

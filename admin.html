@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin CMS Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#f9fafb; padding:40px 5%;">
+    <h1 style="color:#111827; margin-bottom:10px;">FJMC Admin Management CMS</h1>
+    <p style="margin-bottom:40px;">Upload data to Database seamlessly by inserting raw info and asset cloud links.</p>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+        
+        <!-- FORM 1: UPLOAD COURSE -->
+        <div style="background:white; padding:25px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05); border-top:4px solid #e11d48;">
+            <h3>Create & Publish Course</h3>
+            <form id="courseForm" style="margin-top:15px;">
+                <input type="text" id="courseTitle" placeholder="Course Title (e.g. CSIR NET June)" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;"><br>
+                <textarea id="courseDesc" placeholder="Brief Course Description" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px; height:80px;"></textarea><br>
+                <button type="submit" style="background:#e11d48; color:white; border:none; padding:10px 15px; font-weight:bold; cursor:pointer; border-radius:4px;">Publish Course</button>
+            </form>
+        </div>
+
+        <!-- FORM 2: UPLOAD BOOK -->
+        <div style="background:white; padding:25px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05); border-top:4px solid #3b82f6;">
+            <h3>Upload Book Cover & Details</h3>
+            <form id="bookForm" style="margin-top:15px;">
+                <input type="text" id="bookTitle" placeholder="Book / Material Name" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;"><br>
+                <input type="text" id="bookImage" placeholder="Book Cover Image URL Link" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;"><br>
+                <button type="submit" style="background:#3b82f6; color:white; border:none; padding:10px 15px; font-weight:bold; cursor:pointer; border-radius:4px;">Add Book</button>
+            </form>
+        </div>
+
+        <!-- FORM 3: ASSIGN VIDEO/PDF TO STUDENTS -->
+        <div style="background:white; padding:25px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.05); border-top:4px solid #22c55e;">
+            <h3>Assign Video/Material Content</h3>
+            <form id="contentForm" style="margin-top:15px;">
+                <input type="text" id="contentTitle" placeholder="Lecture Title (e.g. Real Analysis Part 1)" required style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;"><br>
+                <select id="contentType" style="width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:4px;">
+                    <option value="video">Video Lecture (YouTube/Vimeo Url)</option>
+                    <option value="pdf">E-Book / PDF (Drive/Cloud Url)</option>
+                </select><br>
+                <input type="text" id="contentUrl" placeholder="Paste URL Resource Link here" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;"><br>
+                <button type="submit" style="background:#22c55e; color:white; border:none; padding:10px 15px; font-weight:bold; cursor:pointer; border-radius:4px;">Upload & Assign</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script type="module">
+        import { db } from './firebase.js';
+        import { collection, addDoc } from "https://gstatic.com";
+
+        // Add Course Logic
+        document.getElementById("courseForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            await addDoc(collection(db, "courses"), {
+                title: document.getElementById("courseTitle").value,
+                desc: document.getElementById("courseDesc").value
+            });
+            alert("Course Published Live!");
+            e.target.reset();
+        });
+
+        // Add Book Logic
+        document.getElementById("bookForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            await addDoc(collection(db, "books"), {
+                title: document.getElementById("bookTitle").value,
+                image: document.getElementById("bookImage").value
+            });
+            alert("Book Listed Live!");
+            e.target.reset();
+        });
+
+        // Assign Content Logic
+        document.getElementById("contentForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            await addDoc(collection(db, "contents"), {
+                title: document.getElementById("contentTitle").value,
+                type: document.getElementById("contentType").value,
+                url: document.getElementById("contentUrl").value
+            });
+            alert("Content Assigned to Student Dashboard Successfully!");
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
