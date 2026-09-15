@@ -33,6 +33,24 @@ form.addEventListener("submit", async function(e) {
             "dashboard.html";
 
     }
+try {
+    const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+    );
+
+    console.log("LOGIN SUCCESS:", userCredential.user.uid);
+
+    window.location.href = "dashboard.html";
+
+} catch (error) {
+
+    console.error("LOGIN ERROR:", error.code, error.message);
+
+    document.getElementById("errorMessage").innerText =
+        error.message;
+}
 
     catch(error) {
 
