@@ -338,46 +338,45 @@
                     <li><a href="#">📞 Contact Us</a></li>
                 </ul>
 <!-- =========================================================
-     TOP RANKERS SECTION
+     TOP RANKERS
 ========================================================= -->
 
-<section id="topRankersSection" class="top-rankers-section">
+<section class="TR-section" id="TRSection">
 
-  <!-- Background overlay -->
-  <div class="rankers-bg-overlay"></div>
+  <div class="TR-background"></div>
 
-  <div class="rankers-container">
+  <div class="TR-content">
 
-    <h2 class="rankers-heading">Top Rankers</h2>
+    <h2 class="TR-title">Top Rankers</h2>
 
     <!-- EXAM TABS -->
-    <div class="ranker-tabs">
+    <div class="TR-tabs">
 
-      <button class="ranker-tab active" data-exam="csir25">
+      <button class="TR-tab TR-active" data-exam="csir25">
         CSIR NET JUNE 25
       </button>
 
-      <button class="ranker-tab" data-exam="csir24dec">
+      <button class="TR-tab" data-exam="csir24dec">
         CSIR NET DEC 24
       </button>
 
-      <button class="ranker-tab" data-exam="jam25">
+      <button class="TR-tab" data-exam="jam25">
         IIT JAM 25
       </button>
 
-      <button class="ranker-tab" data-exam="gate25">
+      <button class="TR-tab" data-exam="gate25">
         GATE 25
       </button>
 
-      <button class="ranker-tab" data-exam="csir24june">
+      <button class="TR-tab" data-exam="csir24june">
         CSIR NET JUNE 24
       </button>
 
-      <button class="ranker-tab" data-exam="jam24">
+      <button class="TR-tab" data-exam="jam24">
         IIT JAM 24
       </button>
 
-      <button class="ranker-tab" data-exam="gate24">
+      <button class="TR-tab" data-exam="gate24">
         GATE 24
       </button>
 
@@ -385,15 +384,15 @@
 
 
     <!-- SLIDER -->
-    <div class="ranker-slider-box">
+    <div class="TR-slider-area">
 
-      <button class="ranker-arrow ranker-prev" id="rankerPrev">
+      <button class="TR-arrow TR-left" id="TRPrev">
         &#10094;
       </button>
 
-      <div class="ranker-slider" id="rankerSlider"></div>
+      <div class="TR-slider" id="TRSlider"></div>
 
-      <button class="ranker-arrow ranker-next" id="rankerNext">
+      <button class="TR-arrow TR-right" id="TRNext">
         &#10095;
       </button>
 
@@ -401,52 +400,59 @@
 
 
     <!-- VIEW ALL -->
-    <button class="ranker-view-all" id="rankerViewAll">
+    <button class="TR-view-all" id="TRViewAll">
       View All Top Rankers
     </button>
 
   </div>
+
 </section>
 
 
+
 <!-- =========================================================
-     ALL RANKERS POPUP
+     ALL TOPPERS
 ========================================================= -->
 
-<div class="ranker-all-modal" id="rankerAllModal">
+<div class="TR-all-overlay" id="TRAllOverlay">
 
-  <div class="ranker-all-box">
+  <div class="TR-all-window">
 
-    <button class="ranker-all-close" id="rankerAllClose">
+    <button class="TR-all-close" id="TRAllClose">
       &times;
     </button>
 
-    <h2 id="rankerAllTitle"></h2>
+    <h2 id="TRAllHeading"></h2>
 
-    <div class="ranker-all-grid" id="rankerAllGrid"></div>
+    <div class="TR-all-grid" id="TRAllGrid"></div>
 
   </div>
 
 </div>
 
 
+
 <!-- =========================================================
-     LARGE PHOTO POPUP
+     LARGE TOPPER
 ========================================================= -->
 
-<div class="ranker-photo-modal" id="rankerPhotoModal">
+<div class="TR-big-overlay" id="TRBigOverlay">
 
-  <button class="ranker-photo-close" id="rankerPhotoClose">
-    &times;
-  </button>
+  <div class="TR-big-card">
 
-  <img id="rankerLargePhoto" src="" alt="Top Ranker">
+    <button class="TR-big-close" id="TRBigClose">
+      &times;
+    </button>
 
-  <div class="ranker-large-text">
+    <img id="TRBigImage" src="" alt="Top Ranker">
 
-    <h3 id="rankerLargeName"></h3>
+    <div class="TR-big-info">
 
-    <p id="rankerLargeRank"></p>
+      <div id="TRBigName"></div>
+
+      <div id="TRBigRank"></div>
+
+    </div>
 
   </div>
 
@@ -457,53 +463,68 @@
 <style>
 
 /* =========================================================
-   SECTION
+   MAIN SECTION
 ========================================================= */
 
-.top-rankers-section {
+.TR-section {
 
   position: relative;
 
   width: 100%;
 
-  padding: 42px 20px 55px;
+  min-height: 390px;
+
+  padding: 38px 20px 48px;
 
   overflow: hidden;
 
-  background-image:
-    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85");
-
-  background-size: cover;
-
-  background-position: center;
-
-  background-attachment: fixed;
+  background: #222;
 
 }
 
 
-/* DARK BACKGROUND */
+/* BACKGROUND */
 
-.rankers-bg-overlay {
+.TR-background {
 
   position: absolute;
 
   inset: 0;
 
-  background:
-    linear-gradient(
-      rgba(0,0,0,.78),
-      rgba(0,0,0,.72)
-    );
+  background-image:
+  url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=90");
+
+  background-size: cover;
+
+  background-position: center;
+
+  filter: none;
 
 }
 
 
-.rankers-container {
+/* DARK LAYER */
+
+.TR-background::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(8,20,18,.82);
+
+}
+
+
+/* CONTENT */
+
+.TR-content {
 
   position: relative;
 
-  z-index: 2;
+  z-index: 3;
 
   max-width: 1100px;
 
@@ -513,16 +534,16 @@
 
 
 /* =========================================================
-   HEADING
+   TITLE
 ========================================================= */
 
-.rankers-heading {
+.TR-title {
 
-  margin: 0 0 20px;
+  margin: 0 0 17px;
 
-  color: white;
+  color: #fff;
 
-  font-size: 30px;
+  font-size: 29px;
 
   font-weight: 700;
 
@@ -533,7 +554,7 @@
    TABS
 ========================================================= */
 
-.ranker-tabs {
+.TR-tabs {
 
   display: flex;
 
@@ -541,140 +562,155 @@
 
   gap: 4px;
 
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 
 }
 
 
-.ranker-tab {
+.TR-tab {
 
-  border: none;
+  border: 0;
 
-  background: #ffe0cc;
+  outline: 0;
 
-  color: #444;
+  padding: 10px 13px;
 
-  padding: 11px 14px;
+  background: #ffe0cb;
 
-  font-size: 12px;
+  color: #4d4d4d;
+
+  border-radius: 4px 4px 0 0;
+
+  font-size: 11px;
 
   font-weight: 600;
 
   cursor: pointer;
 
-  border-radius: 4px 4px 0 0;
+}
 
-  transition: .25s;
+
+.TR-tab:hover {
+
+  background: #ffc49e;
 
 }
 
 
-.ranker-tab:hover {
+.TR-tab.TR-active {
 
-  background: #ffc69f;
+  background: #f7a05e;
 
-}
-
-
-.ranker-tab.active {
-
-  background: #f59b58;
-
-  color: white;
+  color: #fff;
 
 }
 
 
 /* =========================================================
-   SLIDER BOX
+   SLIDER AREA
 ========================================================= */
 
-.ranker-slider-box {
+.TR-slider-area {
 
   position: relative;
 
-  border: 1px solid rgba(255,255,255,.6);
+  border: 1px solid rgba(255,255,255,.55);
 
-  padding: 30px 48px;
-
-  min-height: 285px;
+  padding: 30px 48px 34px;
 
 }
 
 
-.ranker-slider {
+.TR-slider {
+
+  width: 100%;
 
   display: flex;
 
-  gap: 20px;
+  gap: 22px;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   scroll-behavior: smooth;
+
+  user-select: none;
 
 }
 
 
 /* =========================================================
-   CARD
+   TOPPER CARD
 ========================================================= */
 
-.ranker-card {
+.TR-card {
 
-  flex: 0 0 calc(20% - 16px);
+  flex: 0 0 calc(20% - 18px);
 
-  background: #ffe1c8;
+  background: #ffe1c7;
 
-  border: 2px solid rgba(255,255,255,.8);
-
-  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.8);
 
   overflow: hidden;
 
-  transition:
-    transform .3s,
-    box-shadow .3s;
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  transition: transform .25s ease,
+              box-shadow .25s ease;
 
 }
 
 
-.ranker-card:hover {
+.TR-card:hover {
 
-  transform: translateY(-7px);
+  transform: translateY(-6px);
 
   box-shadow:
-    0 12px 30px rgba(0,0,0,.4);
+    0 10px 25px rgba(0,0,0,.38);
 
 }
 
 
-.ranker-card img {
+/* PHOTO */
+
+.TR-card-photo {
 
   width: 100%;
 
-  height: 165px;
+  height: 170px;
 
   display: block;
 
   object-fit: cover;
 
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+
 }
 
 
-.ranker-card-info {
+/* INFO */
+
+.TR-card-info {
+
+  padding: 8px 5px 10px;
 
   text-align: center;
 
-  padding: 9px 4px 11px;
-
 }
 
 
-.ranker-card-name {
+.TR-card-name {
 
   margin: 0;
 
-  color: #e9792f;
+  color: #e97d32;
 
   font-size: 13px;
 
@@ -683,9 +719,9 @@
 }
 
 
-.ranker-card-rank {
+.TR-card-rank {
 
-  margin: 4px 0 0;
+  margin: 3px 0 0;
 
   color: #555;
 
@@ -698,7 +734,7 @@
    ARROWS
 ========================================================= */
 
-.ranker-arrow {
+.TR-arrow {
 
   position: absolute;
 
@@ -706,42 +742,44 @@
 
   transform: translateY(-50%);
 
-  width: 35px;
+  width: 34px;
 
-  height: 35px;
+  height: 34px;
 
-  border: none;
+  border: 0;
 
-  background: #f4a05d;
+  outline: 0;
+
+  background: #f2a05e;
 
   color: white;
 
-  font-size: 20px;
+  font-size: 19px;
 
   cursor: pointer;
 
-  z-index: 5;
+  z-index: 10;
 
   border-radius: 3px;
 
 }
 
 
-.ranker-arrow:hover {
+.TR-arrow:hover {
 
-  background: #e77f32;
+  background: #e57f31;
 
 }
 
 
-.ranker-prev {
+.TR-left {
 
   left: 8px;
 
 }
 
 
-.ranker-next {
+.TR-right {
 
   right: 8px;
 
@@ -752,23 +790,25 @@
    VIEW ALL
 ========================================================= */
 
-.ranker-view-all {
+.TR-view-all {
 
   display: block;
 
-  margin: 24px auto 0;
+  margin: 23px auto 0;
 
-  padding: 11px 22px;
+  padding: 10px 21px;
 
-  border: none;
+  border: 0;
+
+  outline: 0;
 
   border-radius: 4px;
 
-  background: #f4a05d;
+  background: #f3a05e;
 
   color: white;
 
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 600;
 
@@ -777,44 +817,48 @@
 }
 
 
-.ranker-view-all:hover {
+.TR-view-all:hover {
 
-  background: #e77f32;
+  background: #e47e30;
 
 }
 
 
 /* =========================================================
-   ALL MODAL
+   ALL TOPPERS OVERLAY
 ========================================================= */
 
-.ranker-all-modal {
+.TR-all-overlay {
 
-  position: fixed;
+  position: fixed !important;
 
-  inset: 0;
+  inset: 0 !important;
+
+  width: 100% !important;
+
+  height: 100% !important;
+
+  background: rgba(0,0,0,.88) !important;
+
+  z-index: 999999 !important;
 
   display: none;
-
-  z-index: 99999;
 
   padding: 30px 15px;
 
   overflow-y: auto;
 
-  background: rgba(0,0,0,.88);
+}
+
+
+.TR-all-overlay.TR-show {
+
+  display: block !important;
 
 }
 
 
-.ranker-all-modal.show {
-
-  display: block;
-
-}
-
-
-.ranker-all-box {
+.TR-all-window {
 
   position: relative;
 
@@ -824,29 +868,60 @@
 
   padding: 38px 25px 45px;
 
-  background: white;
+  background: #fff;
 
-  border-radius: 8px;
+  border-radius: 7px;
 
 }
 
 
-.ranker-all-box h2 {
+.TR-all-window h2 {
 
-  margin: 0 0 30px;
+  margin: 0 0 28px;
 
   text-align: center;
 
-  font-size: 25px;
-
   color: #333;
+
+  font-size: 24px;
+
+}
+
+
+/* CLOSE */
+
+.TR-all-close {
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 12px;
+
+  width: 38px;
+
+  height: 38px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #e97d32;
+
+  color: white;
+
+  font-size: 27px;
+
+  line-height: 38px;
+
+  cursor: pointer;
 
 }
 
 
 /* GRID */
 
-.ranker-all-grid {
+.TR-all-grid {
 
   display: grid;
 
@@ -858,69 +933,73 @@
 }
 
 
-.ranker-all-card {
+.TR-all-card {
 
-  overflow: hidden;
-
-  background: #ffe1c8;
+  background: #ffe1c7;
 
   border: 1px solid #ddd;
 
+  overflow: hidden;
+
   cursor: pointer;
 
-  transition: .3s;
+  transition: .25s;
 
 }
 
 
-.ranker-all-card:hover {
+.TR-all-card:hover {
 
   transform: translateY(-5px);
 
   box-shadow:
-    0 10px 25px rgba(0,0,0,.2);
+    0 9px 22px rgba(0,0,0,.2);
 
 }
 
 
-.ranker-all-card img {
+.TR-all-card img {
 
   width: 100%;
 
   height: 220px;
 
+  display: block;
+
   object-fit: cover;
 
-  display: block;
+  user-select: none;
+
+  -webkit-user-drag: none;
 
 }
 
 
-.ranker-all-info {
+.TR-all-info {
 
   text-align: center;
 
-  padding: 10px;
+  padding: 9px;
 
 }
 
 
-.ranker-all-info strong {
+.TR-all-info strong {
 
   display: block;
 
-  color: #e9792f;
+  color: #e97d32;
 
   font-size: 14px;
 
 }
 
 
-.ranker-all-info span {
+.TR-all-info span {
 
   display: block;
 
-  margin-top: 4px;
+  margin-top: 3px;
 
   color: #555;
 
@@ -929,46 +1008,23 @@
 }
 
 
-/* CLOSE */
-
-.ranker-all-close {
-
-  position: absolute;
-
-  top: 10px;
-
-  right: 14px;
-
-  width: 40px;
-
-  height: 40px;
-
-  border: none;
-
-  border-radius: 50%;
-
-  background: #e9792f;
-
-  color: white;
-
-  font-size: 28px;
-
-  cursor: pointer;
-
-}
-
-
 /* =========================================================
-   LARGE PHOTO MODAL
+   BIG PHOTO POPUP
 ========================================================= */
 
-.ranker-photo-modal {
+.TR-big-overlay {
 
-  position: fixed;
+  position: fixed !important;
 
-  inset: 0;
+  inset: 0 !important;
 
-  z-index: 100000;
+  width: 100% !important;
+
+  height: 100% !important;
+
+  background: rgba(0,0,0,.93) !important;
+
+  z-index: 1000000 !important;
 
   display: none;
 
@@ -976,50 +1032,134 @@
 
   justify-content: center;
 
-  flex-direction: column;
-
   padding: 20px;
 
-  background: rgba(0,0,0,.94);
+}
+
+
+.TR-big-overlay.TR-show {
+
+  display: flex !important;
 
 }
 
 
-.ranker-photo-modal.show {
+/* BIG CARD */
 
-  display: flex;
+.TR-big-card {
 
-}
+  position: relative;
 
+  width: min(520px, 92vw);
 
-.ranker-photo-modal img {
+  max-height: 92vh;
 
-  max-width: 90%;
+  padding: 12px;
 
-  max-height: 76vh;
-
-  object-fit: contain;
-
-  border: 4px solid white;
+  background: #ffe1c7;
 
   border-radius: 5px;
 
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.7);
+
+  animation: TRPopup .22s ease;
+
 }
 
 
-.ranker-photo-close {
+@keyframes TRPopup {
 
-  position: fixed;
+  from {
 
-  right: 25px;
+    transform: scale(.88);
 
-  top: 18px;
+    opacity: 0;
 
-  width: 43px;
+  }
 
-  height: 43px;
+  to {
 
-  border: none;
+    transform: scale(1);
+
+    opacity: 1;
+
+  }
+
+}
+
+
+/* BIG IMAGE */
+
+.TR-big-card img {
+
+  width: 100%;
+
+  max-height: 72vh;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #eee;
+
+  border: 1px solid #ddd;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+
+/* BIG INFO */
+
+.TR-big-info {
+
+  text-align: center;
+
+  padding: 10px 5px 5px;
+
+}
+
+
+#TRBigName {
+
+  color: #e97d32;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+}
+
+
+#TRBigRank {
+
+  margin-top: 3px;
+
+  color: #555;
+
+  font-size: 15px;
+
+}
+
+
+/* CLOSE BIG */
+
+.TR-big-close {
+
+  position: absolute;
+
+  top: -16px;
+
+  right: -16px;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: 0;
 
   border-radius: 50%;
 
@@ -1027,38 +1167,13 @@
 
   color: #222;
 
-  font-size: 30px;
+  font-size: 29px;
+
+  line-height: 42px;
 
   cursor: pointer;
 
-}
-
-
-.ranker-large-text {
-
-  color: white;
-
-  text-align: center;
-
-  margin-top: 12px;
-
-}
-
-
-.ranker-large-text h3 {
-
-  margin: 0;
-
-  font-size: 21px;
-
-}
-
-
-.ranker-large-text p {
-
-  margin: 5px 0;
-
-  font-size: 14px;
+  z-index: 20;
 
 }
 
@@ -1069,13 +1184,13 @@
 
 @media(max-width:900px){
 
-  .ranker-card {
+  .TR-card {
 
-    flex: 0 0 calc(33.333% - 14px);
+    flex: 0 0 calc(33.333% - 15px);
 
   }
 
-  .ranker-all-grid {
+  .TR-all-grid {
 
     grid-template-columns:
       repeat(3,1fr);
@@ -1091,31 +1206,35 @@
 
 @media(max-width:600px){
 
-  .top-rankers-section {
+  .TR-section {
 
     padding: 30px 10px 40px;
 
-    background-attachment: scroll;
-
   }
 
-  .rankers-heading {
+  .TR-title {
 
     font-size: 24px;
 
   }
 
-  .ranker-tabs {
+  .TR-tabs {
 
     flex-wrap: nowrap;
 
     overflow-x: auto;
 
-    padding-bottom: 5px;
+    scrollbar-width: none;
 
   }
 
-  .ranker-tab {
+  .TR-tabs::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+  .TR-tab {
 
     flex-shrink: 0;
 
@@ -1123,29 +1242,35 @@
 
     font-size: 10px;
 
-    padding: 9px 11px;
+    padding: 9px 10px;
 
   }
 
-  .ranker-slider-box {
+  .TR-slider-area {
 
-    padding: 20px 35px;
-
-  }
-
-  .ranker-card {
-
-    flex: 0 0 calc(50% - 7px);
+    padding: 22px 35px 28px;
 
   }
 
-  .ranker-card img {
+  .TR-slider {
+
+    gap: 12px;
+
+  }
+
+  .TR-card {
+
+    flex: 0 0 calc(50% - 6px);
+
+  }
+
+  .TR-card-photo {
 
     height: 155px;
 
   }
 
-  .ranker-all-grid {
+  .TR-all-grid {
 
     grid-template-columns:
       repeat(2,1fr);
@@ -1154,28 +1279,50 @@
 
   }
 
-  .ranker-all-card img {
+  .TR-all-card img {
 
     height: 180px;
+
+  }
+
+  .TR-big-card {
+
+    width: 92vw;
+
+    padding: 8px;
+
+  }
+
+  .TR-big-card img {
+
+    max-height: 70vh;
+
+  }
+
+  .TR-big-close {
+
+    top: -10px;
+
+    right: -8px;
 
   }
 
 }
 
 
-/* SMALL MOBILE */
+/* VERY SMALL */
 
 @media(max-width:380px){
 
-  .ranker-card {
+  .TR-card {
 
     flex: 0 0 100%;
 
   }
 
-  .ranker-all-grid {
+  .TR-all-grid {
 
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
 
   }
 
@@ -1188,14 +1335,10 @@
 <script>
 
 /* =========================================================
-   RANKER DATA
+   TOP RANKERS DATA
 ========================================================= */
 
-const rankerData = {
-
-  /* -------------------------------------------------------
-     CSIR NET JUNE 2025
-  ------------------------------------------------------- */
+const TRData = {
 
   csir25: {
 
@@ -1204,83 +1347,45 @@ const rankerData = {
     people: [
 
       {
-        name: "Rohit Sharma",
-        rank: "Rank-16",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/16_Rohit_Sharma_JRF.jpg"
-      },
-
-      {
-        name: "Ankita Rana",
-        rank: "Rank-27",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/27_Ankita_Rana_JRF.jpg"
-      },
-
-      {
-        name: "Prakhar Nigam",
-        rank: "Rank-28",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/28_Prakhar_Nigam_NET.jpg"
-      },
-
-      {
-        name: "Madhumita Raj",
-        rank: "Rank-34",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/34_Madhumita_Raj_JRF.jpg"
-      },
-
-      {
         name: "Poornima",
         rank: "Rank-38",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/38_Poornima_NET.jpg"
+        image: "images/rankers/csir-june-25/poornima.jpg"
       },
 
       {
         name: "Nimesh Bhatt",
         rank: "Rank-46",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/46_Nimesh_Bhatt_JRF.jpg"
+        image: "images/rankers/csir-june-25/nimesh-bhatt.jpg"
       },
 
       {
         name: "Ritik Agarwal",
         rank: "Rank-47",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/47_Ritik_Agarwal_NET.jpg"
+        image: "images/rankers/csir-june-25/ritik-agarwal.jpg"
       },
 
       {
         name: "Nisha Yadav",
         rank: "Rank-66",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/66_Nisha_Yadav_JRF.jpg"
+        image: "images/rankers/csir-june-25/nisha-yadav.jpg"
       },
 
       {
         name: "Jawahar Singh",
         rank: "Rank-73",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/73_Jawahar_Singh_NET.jpg"
+        image: "images/rankers/csir-june-25/jawahar-singh.jpg"
       },
 
       {
         name: "Saumyaranjan Das",
         rank: "Rank-73",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/73_Saumyaranjan_Das_NET.jpg"
+        image: "images/rankers/csir-june-25/saumyanarayan-das.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     CSIR NET DEC 2024
-  ------------------------------------------------------- */
 
   csir24dec: {
 
@@ -1291,81 +1396,55 @@ const rankerData = {
       {
         name: "Roshan Kumar Maurya",
         rank: "Rank-9",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-09-Roshan-Kumar-Maurya.jpg"
+        image: "images/rankers/csir-dec-24/roshan-kumar-maurya.jpg"
       },
 
       {
         name: "Pankaj Kumar Samal",
         rank: "Rank-15",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-15-Pankaj-Kumar-Samal.jpg"
+        image: "images/rankers/csir-dec-24/pankaj-kumar-samal.jpg"
       },
 
       {
         name: "Shafiya Ansari",
         rank: "Rank-17",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-17-Shafiya-Ansari.jpg"
+        image: "images/rankers/csir-dec-24/shafiya-ansari.jpg"
       },
 
       {
         name: "Pravin Yadav",
         rank: "Rank-18",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-18-Pravin-Yadav.jpg"
+        image: "images/rankers/csir-dec-24/pravin-yadav.jpg"
       },
 
       {
         name: "Tarun Nirwan",
         rank: "Rank-18",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-18-Tarun-Nirwan.jpg"
+        image: "images/rankers/csir-dec-24/tarun-nirwan.jpg"
       },
 
       {
         name: "Tanishka Singh",
         rank: "Rank-28",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-28-Tanishka-Singh.jpg"
+        image: "images/rankers/csir-dec-24/tanishka-singh.jpg"
       },
 
       {
         name: "Aaina Dalal",
         rank: "Rank-30",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-30-Aaina-Dalal.jpg"
+        image: "images/rankers/csir-dec-24/aaina-dalal.jpg"
       },
 
       {
         name: "Ananya Tripathi",
         rank: "Rank-30",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-30-Ananya-Tripathi.jpg"
-      },
-
-      {
-        name: "Gouranga Payra",
-        rank: "Rank-34",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-34-Gouranga-Payra.jpg"
-      },
-
-      {
-        name: "Sawita Sarswat",
-        rank: "Rank-36",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-36-Sawita-Sarswat.jpg"
+        image: "images/rankers/csir-dec-24/ananya-tripathi.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     IIT JAM 2025
-  ------------------------------------------------------- */
 
   jam25: {
 
@@ -1374,83 +1453,39 @@ const rankerData = {
     people: [
 
       {
-        name: "Sahil Bishnoi",
-        rank: "Rank-7",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-7-Sahil-Bishnoi.jpg"
+        name: "Vikas Choudhary",
+        rank: "Rank-1",
+        image: "images/rankers/jam-25/vikas-choudhary.jpg"
       },
 
       {
-        name: "Harish Kumar",
-        rank: "Rank-13",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-13-Harish-Kumar.jpg"
+        name: "Gaurav Verma",
+        rank: "Rank-2",
+        image: "images/rankers/jam-25/gaurav-verma.jpg"
       },
 
       {
-        name: "Rahul Maithani",
-        rank: "Rank-18",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-18-Rahul-Maithani.jpg"
+        name: "Mihir Shaunak Jawalkar",
+        rank: "Rank-3",
+        image: "images/rankers/jam-25/mihir-jawalkar.jpg"
       },
 
       {
-        name: "Narendra Kumar",
-        rank: "Rank-30",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-30-Narendra-Kumar.jpg"
+        name: "Topper 4",
+        rank: "Rank-10",
+        image: "images/rankers/jam-25/topper-4.jpg"
       },
 
       {
-        name: "Tushar Daila",
-        rank: "Rank-31",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-31-Tushar-Daila.jpg"
-      },
-
-      {
-        name: "Muskan",
-        rank: "Rank-32",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-32-Muskan.jpg"
-      },
-
-      {
-        name: "Pradeep",
-        rank: "Rank-45",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-45-Pradeep.jpg"
-      },
-
-      {
-        name: "Pushpam Kumar",
-        rank: "Rank-50",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-50-Pushpam-Kumar.jpg"
-      },
-
-      {
-        name: "Shahid Anowar Laskar",
-        rank: "Rank-51",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-51-Shahid-Anowar-Laskar.jpg"
-      },
-
-      {
-        name: "Deepak Sharma",
-        rank: "Rank-60",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-60-Deepak-Sharma.jpg"
+        name: "Topper 5",
+        rank: "Rank-15",
+        image: "images/rankers/jam-25/topper-5.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     GATE 2025
-  ------------------------------------------------------- */
 
   gate25: {
 
@@ -1459,83 +1494,39 @@ const rankerData = {
     people: [
 
       {
-        name: "Aaina",
+        name: "Topper 1",
         rank: "Rank-75",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-75-Aaina.jpg"
+        image: "images/rankers/gate-25/topper-1.jpg"
       },
 
       {
-        name: "Arushi",
-        rank: "Rank-75",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-75-Arushi.jpg"
-      },
-
-      {
-        name: "Gopal Samanta",
+        name: "Topper 2",
         rank: "Rank-80",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Gopal-Samanta.jpg"
+        image: "images/rankers/gate-25/topper-2.jpg"
       },
 
       {
-        name: "Saloni Gajjar",
-        rank: "Rank-80",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Saloni-Gajjar.jpg"
-      },
-
-      {
-        name: "Shivani Singh Chauhan",
-        rank: "Rank-80",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Shivani-Singh-Chauhan.jpg"
-      },
-
-      {
-        name: "Parmjeet",
+        name: "Topper 3",
         rank: "Rank-103",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-103-Parmjeet.jpg"
+        image: "images/rankers/gate-25/topper-3.jpg"
       },
 
       {
-        name: "Rupankar",
-        rank: "Rank-103",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-103-Rupankar.jpg"
-      },
-
-      {
-        name: "Nishant Kansari",
+        name: "Topper 4",
         rank: "Rank-124",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-124-Nishant-Kansari.jpg"
+        image: "images/rankers/gate-25/topper-4.jpg"
       },
 
       {
-        name: "Ayan Panja",
+        name: "Topper 5",
         rank: "Rank-167",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-167-Ayan-Panja.jpg"
-      },
-
-      {
-        name: "Shahbaz Ali",
-        rank: "Rank-179",
-        image:
-        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-179-Shahbaz-Ali.jpg"
+        image: "images/rankers/gate-25/topper-5.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     CSIR NET JUNE 2024
-  ------------------------------------------------------- */
 
   csir24june: {
 
@@ -1546,67 +1537,43 @@ const rankerData = {
       {
         name: "S.K. Shorain",
         rank: "Rank-1",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/S.K.%20Shorain.png"
+        image: "images/rankers/csir-june-24/sk-shorain.jpg"
       },
 
       {
         name: "Kanika Goyal",
         rank: "Rank-25",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Kanika%20goyal.png"
+        image: "images/rankers/csir-june-24/kanika-goyal.jpg"
       },
 
       {
         name: "Vineet Hooda",
         rank: "Rank-34",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Vineet%20Hooda.png"
+        image: "images/rankers/csir-june-24/vineet-hooda.jpg"
       },
 
       {
         name: "Ashish Kumar",
         rank: "Rank-40",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/ashish%20kumar.png"
+        image: "images/rankers/csir-june-24/ashish-kumar.jpg"
       },
 
       {
         name: "Sonal",
         rank: "Rank-40",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/sonal.png"
+        image: "images/rankers/csir-june-24/sonal.jpg"
       },
 
       {
         name: "Nitesh",
         rank: "Rank-45",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Nitesh.png"
-      },
-
-      {
-        name: "Manish",
-        rank: "Rank-53",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Manish.png"
-      },
-
-      {
-        name: "Ekta",
-        rank: "Rank-53",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/ekta.png"
+        image: "images/rankers/csir-june-24/nitesh.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     IIT JAM 2024
-  ------------------------------------------------------- */
 
   jam24: {
 
@@ -1617,67 +1584,43 @@ const rankerData = {
       {
         name: "Astha Jain",
         rank: "Rank-12",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/12%20Astha%20Jain.png"
+        image: "images/rankers/jam-24/astha-jain.jpg"
       },
 
       {
         name: "Naresh",
         rank: "Rank-13",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/13%20Naresh.png"
+        image: "images/rankers/jam-24/naresh.jpg"
       },
 
       {
         name: "Digraj Panda",
         rank: "Rank-17",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/17%20Digraj%20Panda.png"
+        image: "images/rankers/jam-24/digraj-panda.jpg"
       },
 
       {
         name: "Vikas Choudhary",
         rank: "Rank-25",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/25%20Vikas%20Choudhary.png"
+        image: "images/rankers/jam-24/vikas-choudhary.jpg"
       },
 
       {
         name: "Sohan Manna",
         rank: "Rank-26",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/26%20Sohan%20Manna.png"
+        image: "images/rankers/jam-24/sohan-manna.jpg"
       },
 
       {
         name: "Nishant Kumar Verma",
         rank: "Rank-38",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/38%20Nishant-Kumar-Verma.png"
-      },
-
-      {
-        name: "Rick George Fernandes",
-        rank: "Rank-43",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/43%20Rick%20George.png"
-      },
-
-      {
-        name: "Subham Chatterjee",
-        rank: "Rank-44",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/44%20Subham.png"
+        image: "images/rankers/jam-24/nishant-verma.jpg"
       }
 
     ]
 
   },
 
-
-  /* -------------------------------------------------------
-     GATE 2024
-  ------------------------------------------------------- */
 
   gate24: {
 
@@ -1688,57 +1631,37 @@ const rankerData = {
       {
         name: "Sachin Shukla",
         rank: "Rank-2",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/2-Sachin_Shukla.png"
+        image: "images/rankers/gate-24/sachin-shukla.jpg"
       },
 
       {
         name: "Amiya Ghosh",
         rank: "Rank-11",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/11%20Amiya%20Ghosh.png"
+        image: "images/rankers/gate-24/amiya-ghosh.jpg"
       },
 
       {
         name: "Divyanshu Singh",
         rank: "Rank-21",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/21-Divyanshu_Singh.png"
+        image: "images/rankers/gate-24/divyanshu-singh.jpg"
       },
 
       {
         name: "Harsh Soni",
         rank: "Rank-42",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/42%20Harsh%20Soni.png"
+        image: "images/rankers/gate-24/harsh-soni.jpg"
       },
 
       {
         name: "Inderjeet Bhardwaj",
         rank: "Rank-62",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/62-Inderjeet_Bhardwaj.png"
+        image: "images/rankers/gate-24/inderjeet.jpg"
       },
 
       {
         name: "Bishnu Aggarwal",
         rank: "Rank-72",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Bishnu%20Aggarwal.png"
-      },
-
-      {
-        name: "Bhupendra Pratap Singh",
-        rank: "Rank-110",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Bhupendra%20Pratap%20Singh.png"
-      },
-
-      {
-        name: "DeepJyoti Kalita",
-        rank: "Rank-138",
-        image:
-        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Deepjyoti%20Kalita.png"
+        image: "images/rankers/gate-24/bishnu.jpg"
       }
 
     ]
@@ -1753,91 +1676,90 @@ const rankerData = {
    ELEMENTS
 ========================================================= */
 
-const rankerSlider =
-  document.getElementById("rankerSlider");
+const TRSlider =
+  document.getElementById("TRSlider");
 
-const rankerPrev =
-  document.getElementById("rankerPrev");
+const TRPrev =
+  document.getElementById("TRPrev");
 
-const rankerNext =
-  document.getElementById("rankerNext");
+const TRNext =
+  document.getElementById("TRNext");
 
-const rankerViewAll =
-  document.getElementById("rankerViewAll");
+const TRViewAll =
+  document.getElementById("TRViewAll");
 
-const rankerAllModal =
-  document.getElementById("rankerAllModal");
+const TRAllOverlay =
+  document.getElementById("TRAllOverlay");
 
-const rankerAllClose =
-  document.getElementById("rankerAllClose");
+const TRAllClose =
+  document.getElementById("TRAllClose");
 
-const rankerAllTitle =
-  document.getElementById("rankerAllTitle");
+const TRAllHeading =
+  document.getElementById("TRAllHeading");
 
-const rankerAllGrid =
-  document.getElementById("rankerAllGrid");
+const TRAllGrid =
+  document.getElementById("TRAllGrid");
 
-const rankerPhotoModal =
-  document.getElementById("rankerPhotoModal");
+const TRBigOverlay =
+  document.getElementById("TRBigOverlay");
 
-const rankerPhotoClose =
-  document.getElementById("rankerPhotoClose");
+const TRBigClose =
+  document.getElementById("TRBigClose");
 
-const rankerLargePhoto =
-  document.getElementById("rankerLargePhoto");
+const TRBigImage =
+  document.getElementById("TRBigImage");
 
-const rankerLargeName =
-  document.getElementById("rankerLargeName");
+const TRBigName =
+  document.getElementById("TRBigName");
 
-const rankerLargeRank =
-  document.getElementById("rankerLargeRank");
+const TRBigRank =
+  document.getElementById("TRBigRank");
 
 
-
-/* =========================================================
-   CURRENT EXAM
-========================================================= */
-
-let currentRankerExam = "csir25";
+let TRCurrentExam = "csir25";
 
 
 
 /* =========================================================
-   DISPLAY SLIDER
+   LOAD CARDS
 ========================================================= */
 
-function displayRankers(exam){
+function TRLoad(exam){
 
-  currentRankerExam = exam;
+  TRCurrentExam = exam;
 
-  const data =
-    rankerData[exam];
+  const data = TRData[exam];
 
-  rankerSlider.innerHTML = "";
+  TRSlider.innerHTML = "";
 
-  data.people.forEach(person => {
+  data.people.forEach((person, index) => {
 
     const card =
       document.createElement("div");
 
-    card.className =
-      "ranker-card";
+    card.className = "TR-card";
+
+    card.setAttribute(
+      "data-index",
+      index
+    );
 
     card.innerHTML = `
 
       <img
+        class="TR-card-photo"
         src="${person.image}"
         alt="${person.name}"
-        loading="lazy"
+        draggable="false"
       >
 
-      <div class="ranker-card-info">
+      <div class="TR-card-info">
 
-        <p class="ranker-card-name">
+        <p class="TR-card-name">
           ${person.name}
         </p>
 
-        <p class="ranker-card-rank">
+        <p class="TR-card-rank">
           ${person.rank}
         </p>
 
@@ -1845,17 +1767,29 @@ function displayRankers(exam){
 
     `;
 
-    card.onclick = function(){
 
-      openLargePhoto(person);
+    /* CLICK CARD */
 
-    };
+    card.addEventListener(
+      "click",
+      function(e){
 
-    rankerSlider.appendChild(card);
+        e.preventDefault();
+
+        e.stopPropagation();
+
+        TROpenBig(person);
+
+      }
+    );
+
+
+    TRSlider.appendChild(card);
 
   });
 
-  rankerSlider.scrollLeft = 0;
+
+  TRSlider.scrollLeft = 0;
 
 }
 
@@ -1866,24 +1800,30 @@ function displayRankers(exam){
 ========================================================= */
 
 document
-.querySelectorAll(".ranker-tab")
-.forEach(tab => {
+.querySelectorAll(".TR-tab")
+.forEach(function(tab){
 
-  tab.addEventListener("click", function(){
+  tab.addEventListener(
+    "click",
+    function(){
 
-    document
-    .querySelectorAll(".ranker-tab")
-    .forEach(t =>
-      t.classList.remove("active")
-    );
+      document
+      .querySelectorAll(".TR-tab")
+      .forEach(function(t){
 
-    this.classList.add("active");
+        t.classList.remove("TR-active");
 
-    displayRankers(
-      this.dataset.exam
-    );
+      });
 
-  });
+
+      this.classList.add("TR-active");
+
+      TRLoad(
+        this.getAttribute("data-exam")
+      );
+
+    }
+  );
 
 });
 
@@ -1893,23 +1833,26 @@ document
    NEXT
 ========================================================= */
 
-rankerNext.onclick = function(){
+TRNext.addEventListener(
+  "click",
+  function(){
 
-  const card =
-    rankerSlider.querySelector(".ranker-card");
+    const card =
+      TRSlider.querySelector(".TR-card");
 
-  if(!card) return;
+    if(!card) return;
 
-  rankerSlider.scrollBy({
+    TRSlider.scrollBy({
 
-    left:
-      card.offsetWidth + 20,
+      left:
+        card.getBoundingClientRect().width + 22,
 
-    behavior: "smooth"
+      behavior: "smooth"
 
-  });
+    });
 
-};
+  }
+);
 
 
 
@@ -1917,23 +1860,26 @@ rankerNext.onclick = function(){
    PREVIOUS
 ========================================================= */
 
-rankerPrev.onclick = function(){
+TRPrev.addEventListener(
+  "click",
+  function(){
 
-  const card =
-    rankerSlider.querySelector(".ranker-card");
+    const card =
+      TRSlider.querySelector(".TR-card");
 
-  if(!card) return;
+    if(!card) return;
 
-  rankerSlider.scrollBy({
+    TRSlider.scrollBy({
 
-    left:
-      -(card.offsetWidth + 20),
+      left:
+        -(card.getBoundingClientRect().width + 22),
 
-    behavior: "smooth"
+      behavior: "smooth"
 
-  });
+    });
 
-};
+  }
+);
 
 
 
@@ -1941,160 +1887,66 @@ rankerPrev.onclick = function(){
    AUTO SLIDER
 ========================================================= */
 
-let rankerAutoSlider =
-  setInterval(function(){
+setInterval(function(){
 
-    const card =
-      rankerSlider.querySelector(".ranker-card");
+  const card =
+    TRSlider.querySelector(".TR-card");
 
-    if(!card) return;
+  if(!card) return;
 
-    const maxScroll =
-      rankerSlider.scrollWidth -
-      rankerSlider.clientWidth;
+  const move =
+    card.getBoundingClientRect().width + 22;
 
-    if(
-      rankerSlider.scrollLeft >=
-      maxScroll - 5
-    ){
-
-      rankerSlider.scrollTo({
-
-        left: 0,
-
-        behavior: "smooth"
-
-      });
-
-    }else{
-
-      rankerSlider.scrollBy({
-
-        left:
-          card.offsetWidth + 20,
-
-        behavior: "smooth"
-
-      });
-
-    }
-
-  },3500);
+  const end =
+    TRSlider.scrollWidth -
+    TRSlider.clientWidth;
 
 
+  if(TRSlider.scrollLeft >= end - 5){
 
-/* =========================================================
-   VIEW ALL
-========================================================= */
+    TRSlider.scrollTo({
 
-rankerViewAll.onclick =
-function(){
+      left: 0,
 
-  const data =
-    rankerData[currentRankerExam];
+      behavior: "smooth"
 
-  rankerAllTitle.textContent =
-    data.title;
+    });
 
-  rankerAllGrid.innerHTML = "";
+  }else{
 
-  data.people.forEach(person => {
+    TRSlider.scrollBy({
 
-    const card =
-      document.createElement("div");
+      left: move,
 
-    card.className =
-      "ranker-all-card";
+      behavior: "smooth"
 
-    card.innerHTML = `
-
-      <img
-        src="${person.image}"
-        alt="${person.name}"
-        loading="lazy"
-      >
-
-      <div class="ranker-all-info">
-
-        <strong>
-          ${person.name}
-        </strong>
-
-        <span>
-          ${person.rank}
-        </span>
-
-      </div>
-
-    `;
-
-    card.onclick = function(){
-
-      openLargePhoto(person);
-
-    };
-
-    rankerAllGrid.appendChild(card);
-
-  });
-
-  rankerAllModal.classList.add("show");
-
-  document.body.style.overflow =
-    "hidden";
-
-};
-
-
-
-/* =========================================================
-   CLOSE ALL
-========================================================= */
-
-rankerAllClose.onclick =
-function(){
-
-  rankerAllModal.classList.remove("show");
-
-  document.body.style.overflow =
-    "";
-
-};
-
-
-
-rankerAllModal.onclick =
-function(e){
-
-  if(e.target === rankerAllModal){
-
-    rankerAllModal.classList.remove("show");
-
-    document.body.style.overflow =
-      "";
+    });
 
   }
 
-};
+},3500);
 
 
 
 /* =========================================================
-   LARGE PHOTO
+   OPEN BIG PHOTO
 ========================================================= */
 
-function openLargePhoto(person){
+function TROpenBig(person){
 
-  rankerLargePhoto.src =
-    person.image;
+  TRBigImage.src = person.image;
 
-  rankerLargeName.textContent =
+  TRBigName.textContent =
     person.name;
 
-  rankerLargeRank.textContent =
+  TRBigRank.textContent =
     person.rank;
 
-  rankerPhotoModal.classList.add("show");
+
+  TRBigOverlay.classList.add(
+    "TR-show"
+  );
+
 
   document.body.style.overflow =
     "hidden";
@@ -2104,43 +1956,178 @@ function openLargePhoto(person){
 
 
 /* =========================================================
-   CLOSE PHOTO
+   CLOSE BIG PHOTO
 ========================================================= */
 
-rankerPhotoClose.onclick =
-function(){
+function TRCloseBig(){
 
-  rankerPhotoModal.classList.remove("show");
+  TRBigOverlay.classList.remove(
+    "TR-show"
+  );
 
-  rankerLargePhoto.src = "";
+  TRBigImage.src = "";
 
   document.body.style.overflow =
     "";
 
-};
+}
 
 
+TRBigClose.addEventListener(
+  "click",
+  TRCloseBig
+);
 
-rankerPhotoModal.onclick =
-function(e){
 
-  if(e.target === rankerPhotoModal){
+/* CLICK OUTSIDE */
 
-    rankerPhotoModal.classList.remove("show");
+TRBigOverlay.addEventListener(
+  "click",
+  function(e){
 
-    rankerLargePhoto.src = "";
+    if(
+      e.target === TRBigOverlay
+    ){
 
-    document.body.style.overflow =
-      "";
+      TRCloseBig();
+
+    }
 
   }
-
-};
+);
 
 
 
 /* =========================================================
-   ESC KEY
+   VIEW ALL
+========================================================= */
+
+TRViewAll.addEventListener(
+  "click",
+  function(){
+
+    const data =
+      TRData[TRCurrentExam];
+
+
+    TRAllHeading.textContent =
+      data.title;
+
+
+    TRAllGrid.innerHTML = "";
+
+
+    data.people.forEach(function(person){
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "TR-all-card";
+
+
+      card.innerHTML = `
+
+        <img
+          src="${person.image}"
+          alt="${person.name}"
+          draggable="false"
+        >
+
+        <div class="TR-all-info">
+
+          <strong>
+            ${person.name}
+          </strong>
+
+          <span>
+            ${person.rank}
+          </span>
+
+        </div>
+
+      `;
+
+
+      card.addEventListener(
+        "click",
+        function(e){
+
+          e.preventDefault();
+
+          e.stopPropagation();
+
+          TRCloseAll();
+
+          setTimeout(function(){
+
+            TROpenBig(person);
+
+          },100);
+
+        }
+      );
+
+
+      TRAllGrid.appendChild(card);
+
+    });
+
+
+    TRAllOverlay.classList.add(
+      "TR-show"
+    );
+
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+);
+
+
+
+/* =========================================================
+   CLOSE ALL
+========================================================= */
+
+function TRCloseAll(){
+
+  TRAllOverlay.classList.remove(
+    "TR-show"
+  );
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+TRAllClose.addEventListener(
+  "click",
+  TRCloseAll
+);
+
+
+TRAllOverlay.addEventListener(
+  "click",
+  function(e){
+
+    if(
+      e.target === TRAllOverlay
+    ){
+
+      TRCloseAll();
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   ESC
 ========================================================= */
 
 document.addEventListener(
@@ -2149,12 +2136,9 @@ document.addEventListener(
 
     if(e.key === "Escape"){
 
-      rankerAllModal.classList.remove("show");
+      TRCloseBig();
 
-      rankerPhotoModal.classList.remove("show");
-
-      document.body.style.overflow =
-        "";
+      TRCloseAll();
 
     }
 
@@ -2167,7 +2151,6 @@ document.addEventListener(
    START
 ========================================================= */
 
-displayRankers("csir25");
+TRLoad("csir25");
 
 </script>
-
