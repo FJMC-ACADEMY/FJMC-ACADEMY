@@ -1781,3 +1781,1836 @@ document.addEventListener(
 DipsLifeLoad();
 
 </script>
+                <!-- =========================================================
+     TOP RANKERS SECTION
+========================================================= -->
+
+<section id="topRankersSection" class="top-rankers-section">
+
+  <!-- Background overlay -->
+  <div class="rankers-bg-overlay"></div>
+
+  <div class="rankers-container">
+
+    <h2 class="rankers-heading">Top Rankers</h2>
+
+    <!-- EXAM TABS -->
+    <div class="ranker-tabs">
+
+      <button class="ranker-tab active" data-exam="csir25">
+        CSIR NET JUNE 25
+      </button>
+
+      <button class="ranker-tab" data-exam="csir24dec">
+        CSIR NET DEC 24
+      </button>
+
+      <button class="ranker-tab" data-exam="jam25">
+        IIT JAM 25
+      </button>
+
+      <button class="ranker-tab" data-exam="gate25">
+        GATE 25
+      </button>
+
+      <button class="ranker-tab" data-exam="csir24june">
+        CSIR NET JUNE 24
+      </button>
+
+      <button class="ranker-tab" data-exam="jam24">
+        IIT JAM 24
+      </button>
+
+      <button class="ranker-tab" data-exam="gate24">
+        GATE 24
+      </button>
+
+    </div>
+
+
+    <!-- SLIDER -->
+    <div class="ranker-slider-box">
+
+      <button class="ranker-arrow ranker-prev" id="rankerPrev">
+        &#10094;
+      </button>
+
+      <div class="ranker-slider" id="rankerSlider"></div>
+
+      <button class="ranker-arrow ranker-next" id="rankerNext">
+        &#10095;
+      </button>
+
+    </div>
+
+
+    <!-- VIEW ALL -->
+    <button class="ranker-view-all" id="rankerViewAll">
+      View All Top Rankers
+    </button>
+
+  </div>
+</section>
+
+
+<!-- =========================================================
+     ALL RANKERS POPUP
+========================================================= -->
+
+<div class="ranker-all-modal" id="rankerAllModal">
+
+  <div class="ranker-all-box">
+
+    <button class="ranker-all-close" id="rankerAllClose">
+      &times;
+    </button>
+
+    <h2 id="rankerAllTitle"></h2>
+
+    <div class="ranker-all-grid" id="rankerAllGrid"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     LARGE PHOTO POPUP
+========================================================= -->
+
+<div class="ranker-photo-modal" id="rankerPhotoModal">
+
+  <button class="ranker-photo-close" id="rankerPhotoClose">
+    &times;
+  </button>
+
+  <img id="rankerLargePhoto" src="" alt="Top Ranker">
+
+  <div class="ranker-large-text">
+
+    <h3 id="rankerLargeName"></h3>
+
+    <p id="rankerLargeRank"></p>
+
+  </div>
+
+</div>
+
+
+
+<style>
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.top-rankers-section {
+
+  position: relative;
+
+  width: 100%;
+
+  padding: 42px 20px 55px;
+
+  overflow: hidden;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-attachment: fixed;
+
+}
+
+
+/* DARK BACKGROUND */
+
+.rankers-bg-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.78),
+      rgba(0,0,0,.72)
+    );
+
+}
+
+
+.rankers-container {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.rankers-heading {
+
+  margin: 0 0 20px;
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.ranker-tabs {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 4px;
+
+  margin-bottom: 30px;
+
+}
+
+
+.ranker-tab {
+
+  border: none;
+
+  background: #ffe0cc;
+
+  color: #444;
+
+  padding: 11px 14px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  border-radius: 4px 4px 0 0;
+
+  transition: .25s;
+
+}
+
+
+.ranker-tab:hover {
+
+  background: #ffc69f;
+
+}
+
+
+.ranker-tab.active {
+
+  background: #f59b58;
+
+  color: white;
+
+}
+
+
+/* =========================================================
+   SLIDER BOX
+========================================================= */
+
+.ranker-slider-box {
+
+  position: relative;
+
+  border: 1px solid rgba(255,255,255,.6);
+
+  padding: 30px 48px;
+
+  min-height: 285px;
+
+}
+
+
+.ranker-slider {
+
+  display: flex;
+
+  gap: 20px;
+
+  overflow: hidden;
+
+  scroll-behavior: smooth;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.ranker-card {
+
+  flex: 0 0 calc(20% - 16px);
+
+  background: #ffe1c8;
+
+  border: 2px solid rgba(255,255,255,.8);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform .3s,
+    box-shadow .3s;
+
+}
+
+
+.ranker-card:hover {
+
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.4);
+
+}
+
+
+.ranker-card img {
+
+  width: 100%;
+
+  height: 165px;
+
+  display: block;
+
+  object-fit: cover;
+
+}
+
+
+.ranker-card-info {
+
+  text-align: center;
+
+  padding: 9px 4px 11px;
+
+}
+
+
+.ranker-card-name {
+
+  margin: 0;
+
+  color: #e9792f;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+}
+
+
+.ranker-card-rank {
+
+  margin: 4px 0 0;
+
+  color: #555;
+
+  font-size: 12px;
+
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.ranker-arrow {
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 35px;
+
+  height: 35px;
+
+  border: none;
+
+  background: #f4a05d;
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  border-radius: 3px;
+
+}
+
+
+.ranker-arrow:hover {
+
+  background: #e77f32;
+
+}
+
+
+.ranker-prev {
+
+  left: 8px;
+
+}
+
+
+.ranker-next {
+
+  right: 8px;
+
+}
+
+
+/* =========================================================
+   VIEW ALL
+========================================================= */
+
+.ranker-view-all {
+
+  display: block;
+
+  margin: 24px auto 0;
+
+  padding: 11px 22px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #f4a05d;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+.ranker-view-all:hover {
+
+  background: #e77f32;
+
+}
+
+
+/* =========================================================
+   ALL MODAL
+========================================================= */
+
+.ranker-all-modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  z-index: 99999;
+
+  padding: 30px 15px;
+
+  overflow-y: auto;
+
+  background: rgba(0,0,0,.88);
+
+}
+
+
+.ranker-all-modal.show {
+
+  display: block;
+
+}
+
+
+.ranker-all-box {
+
+  position: relative;
+
+  max-width: 1150px;
+
+  margin: auto;
+
+  padding: 38px 25px 45px;
+
+  background: white;
+
+  border-radius: 8px;
+
+}
+
+
+.ranker-all-box h2 {
+
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  font-size: 25px;
+
+  color: #333;
+
+}
+
+
+/* GRID */
+
+.ranker-all-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap: 20px;
+
+}
+
+
+.ranker-all-card {
+
+  overflow: hidden;
+
+  background: #ffe1c8;
+
+  border: 1px solid #ddd;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+}
+
+
+.ranker-all-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.2);
+
+}
+
+
+.ranker-all-card img {
+
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+
+.ranker-all-info {
+
+  text-align: center;
+
+  padding: 10px;
+
+}
+
+
+.ranker-all-info strong {
+
+  display: block;
+
+  color: #e9792f;
+
+  font-size: 14px;
+
+}
+
+
+.ranker-all-info span {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color: #555;
+
+  font-size: 12px;
+
+}
+
+
+/* CLOSE */
+
+.ranker-all-close {
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 14px;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #e9792f;
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+}
+
+
+/* =========================================================
+   LARGE PHOTO MODAL
+========================================================= */
+
+.ranker-photo-modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100000;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  padding: 20px;
+
+  background: rgba(0,0,0,.94);
+
+}
+
+
+.ranker-photo-modal.show {
+
+  display: flex;
+
+}
+
+
+.ranker-photo-modal img {
+
+  max-width: 90%;
+
+  max-height: 76vh;
+
+  object-fit: contain;
+
+  border: 4px solid white;
+
+  border-radius: 5px;
+
+}
+
+
+.ranker-photo-close {
+
+  position: fixed;
+
+  right: 25px;
+
+  top: 18px;
+
+  width: 43px;
+
+  height: 43px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: #222;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+}
+
+
+.ranker-large-text {
+
+  color: white;
+
+  text-align: center;
+
+  margin-top: 12px;
+
+}
+
+
+.ranker-large-text h3 {
+
+  margin: 0;
+
+  font-size: 21px;
+
+}
+
+
+.ranker-large-text p {
+
+  margin: 5px 0;
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  .ranker-card {
+
+    flex: 0 0 calc(33.333% - 14px);
+
+  }
+
+  .ranker-all-grid {
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+  .top-rankers-section {
+
+    padding: 30px 10px 40px;
+
+    background-attachment: scroll;
+
+  }
+
+  .rankers-heading {
+
+    font-size: 24px;
+
+  }
+
+  .ranker-tabs {
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+  }
+
+  .ranker-tab {
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    font-size: 10px;
+
+    padding: 9px 11px;
+
+  }
+
+  .ranker-slider-box {
+
+    padding: 20px 35px;
+
+  }
+
+  .ranker-card {
+
+    flex: 0 0 calc(50% - 7px);
+
+  }
+
+  .ranker-card img {
+
+    height: 155px;
+
+  }
+
+  .ranker-all-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap: 12px;
+
+  }
+
+  .ranker-all-card img {
+
+    height: 180px;
+
+  }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:380px){
+
+  .ranker-card {
+
+    flex: 0 0 100%;
+
+  }
+
+  .ranker-all-grid {
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* =========================================================
+   RANKER DATA
+========================================================= */
+
+const rankerData = {
+
+  /* -------------------------------------------------------
+     CSIR NET JUNE 2025
+  ------------------------------------------------------- */
+
+  csir25: {
+
+    title: "CSIR NET RANKERS JUNE 2025",
+
+    people: [
+
+      {
+        name: "Rohit Sharma",
+        rank: "Rank-16",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/16_Rohit_Sharma_JRF.jpg"
+      },
+
+      {
+        name: "Ankita Rana",
+        rank: "Rank-27",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/27_Ankita_Rana_JRF.jpg"
+      },
+
+      {
+        name: "Prakhar Nigam",
+        rank: "Rank-28",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/28_Prakhar_Nigam_NET.jpg"
+      },
+
+      {
+        name: "Madhumita Raj",
+        rank: "Rank-34",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/34_Madhumita_Raj_JRF.jpg"
+      },
+
+      {
+        name: "Poornima",
+        rank: "Rank-38",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/38_Poornima_NET.jpg"
+      },
+
+      {
+        name: "Nimesh Bhatt",
+        rank: "Rank-46",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/46_Nimesh_Bhatt_JRF.jpg"
+      },
+
+      {
+        name: "Ritik Agarwal",
+        rank: "Rank-47",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/47_Ritik_Agarwal_NET.jpg"
+      },
+
+      {
+        name: "Nisha Yadav",
+        rank: "Rank-66",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/66_Nisha_Yadav_JRF.jpg"
+      },
+
+      {
+        name: "Jawahar Singh",
+        rank: "Rank-73",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/73_Jawahar_Singh_NET.jpg"
+      },
+
+      {
+        name: "Saumyaranjan Das",
+        rank: "Rank-73",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/CSIR2025/73_Saumyaranjan_Das_NET.jpg"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     CSIR NET DEC 2024
+  ------------------------------------------------------- */
+
+  csir24dec: {
+
+    title: "CSIR NET RANKERS DEC 2024",
+
+    people: [
+
+      {
+        name: "Roshan Kumar Maurya",
+        rank: "Rank-9",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-09-Roshan-Kumar-Maurya.jpg"
+      },
+
+      {
+        name: "Pankaj Kumar Samal",
+        rank: "Rank-15",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-15-Pankaj-Kumar-Samal.jpg"
+      },
+
+      {
+        name: "Shafiya Ansari",
+        rank: "Rank-17",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-17-Shafiya-Ansari.jpg"
+      },
+
+      {
+        name: "Pravin Yadav",
+        rank: "Rank-18",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-18-Pravin-Yadav.jpg"
+      },
+
+      {
+        name: "Tarun Nirwan",
+        rank: "Rank-18",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-18-Tarun-Nirwan.jpg"
+      },
+
+      {
+        name: "Tanishka Singh",
+        rank: "Rank-28",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-28-Tanishka-Singh.jpg"
+      },
+
+      {
+        name: "Aaina Dalal",
+        rank: "Rank-30",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-30-Aaina-Dalal.jpg"
+      },
+
+      {
+        name: "Ananya Tripathi",
+        rank: "Rank-30",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-30-Ananya-Tripathi.jpg"
+      },
+
+      {
+        name: "Gouranga Payra",
+        rank: "Rank-34",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-34-Gouranga-Payra.jpg"
+      },
+
+      {
+        name: "Sawita Sarswat",
+        rank: "Rank-36",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/net2025/Rank-36-Sawita-Sarswat.jpg"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     IIT JAM 2025
+  ------------------------------------------------------- */
+
+  jam25: {
+
+    title: "IIT JAM RANKERS 2025",
+
+    people: [
+
+      {
+        name: "Sahil Bishnoi",
+        rank: "Rank-7",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-7-Sahil-Bishnoi.jpg"
+      },
+
+      {
+        name: "Harish Kumar",
+        rank: "Rank-13",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-13-Harish-Kumar.jpg"
+      },
+
+      {
+        name: "Rahul Maithani",
+        rank: "Rank-18",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-18-Rahul-Maithani.jpg"
+      },
+
+      {
+        name: "Narendra Kumar",
+        rank: "Rank-30",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-30-Narendra-Kumar.jpg"
+      },
+
+      {
+        name: "Tushar Daila",
+        rank: "Rank-31",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-31-Tushar-Daila.jpg"
+      },
+
+      {
+        name: "Muskan",
+        rank: "Rank-32",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-32-Muskan.jpg"
+      },
+
+      {
+        name: "Pradeep",
+        rank: "Rank-45",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-45-Pradeep.jpg"
+      },
+
+      {
+        name: "Pushpam Kumar",
+        rank: "Rank-50",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-50-Pushpam-Kumar.jpg"
+      },
+
+      {
+        name: "Shahid Anowar Laskar",
+        rank: "Rank-51",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-51-Shahid-Anowar-Laskar.jpg"
+      },
+
+      {
+        name: "Deepak Sharma",
+        rank: "Rank-60",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Jam2025/Rank-60-Deepak-Sharma.jpg"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     GATE 2025
+  ------------------------------------------------------- */
+
+  gate25: {
+
+    title: "GATE RANKERS 2025",
+
+    people: [
+
+      {
+        name: "Aaina",
+        rank: "Rank-75",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-75-Aaina.jpg"
+      },
+
+      {
+        name: "Arushi",
+        rank: "Rank-75",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-75-Arushi.jpg"
+      },
+
+      {
+        name: "Gopal Samanta",
+        rank: "Rank-80",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Gopal-Samanta.jpg"
+      },
+
+      {
+        name: "Saloni Gajjar",
+        rank: "Rank-80",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Saloni-Gajjar.jpg"
+      },
+
+      {
+        name: "Shivani Singh Chauhan",
+        rank: "Rank-80",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-80-Shivani-Singh-Chauhan.jpg"
+      },
+
+      {
+        name: "Parmjeet",
+        rank: "Rank-103",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-103-Parmjeet.jpg"
+      },
+
+      {
+        name: "Rupankar",
+        rank: "Rank-103",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-103-Rupankar.jpg"
+      },
+
+      {
+        name: "Nishant Kansari",
+        rank: "Rank-124",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-124-Nishant-Kansari.jpg"
+      },
+
+      {
+        name: "Ayan Panja",
+        rank: "Rank-167",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-167-Ayan-Panja.jpg"
+      },
+
+      {
+        name: "Shahbaz Ali",
+        rank: "Rank-179",
+        image:
+        "https://www.dipsacademy.com/Content/Rankers/Gate2025/Rank-179-Shahbaz-Ali.jpg"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     CSIR NET JUNE 2024
+  ------------------------------------------------------- */
+
+  csir24june: {
+
+    title: "CSIR NET RANKERS JUNE 2024",
+
+    people: [
+
+      {
+        name: "S.K. Shorain",
+        rank: "Rank-1",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/S.K.%20Shorain.png"
+      },
+
+      {
+        name: "Kanika Goyal",
+        rank: "Rank-25",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Kanika%20goyal.png"
+      },
+
+      {
+        name: "Vineet Hooda",
+        rank: "Rank-34",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Vineet%20Hooda.png"
+      },
+
+      {
+        name: "Ashish Kumar",
+        rank: "Rank-40",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/ashish%20kumar.png"
+      },
+
+      {
+        name: "Sonal",
+        rank: "Rank-40",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/sonal.png"
+      },
+
+      {
+        name: "Nitesh",
+        rank: "Rank-45",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Nitesh.png"
+      },
+
+      {
+        name: "Manish",
+        rank: "Rank-53",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/Manish.png"
+      },
+
+      {
+        name: "Ekta",
+        rank: "Rank-53",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/csirnet2024/ekta.png"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     IIT JAM 2024
+  ------------------------------------------------------- */
+
+  jam24: {
+
+    title: "IIT JAM RANKERS 2024",
+
+    people: [
+
+      {
+        name: "Astha Jain",
+        rank: "Rank-12",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/12%20Astha%20Jain.png"
+      },
+
+      {
+        name: "Naresh",
+        rank: "Rank-13",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/13%20Naresh.png"
+      },
+
+      {
+        name: "Digraj Panda",
+        rank: "Rank-17",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/17%20Digraj%20Panda.png"
+      },
+
+      {
+        name: "Vikas Choudhary",
+        rank: "Rank-25",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/25%20Vikas%20Choudhary.png"
+      },
+
+      {
+        name: "Sohan Manna",
+        rank: "Rank-26",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/26%20Sohan%20Manna.png"
+      },
+
+      {
+        name: "Nishant Kumar Verma",
+        rank: "Rank-38",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/38%20Nishant-Kumar-Verma.png"
+      },
+
+      {
+        name: "Rick George Fernandes",
+        rank: "Rank-43",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/43%20Rick%20George.png"
+      },
+
+      {
+        name: "Subham Chatterjee",
+        rank: "Rank-44",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/jam-rankers-2024/44%20Subham.png"
+      }
+
+    ]
+
+  },
+
+
+  /* -------------------------------------------------------
+     GATE 2024
+  ------------------------------------------------------- */
+
+  gate24: {
+
+    title: "GATE RANKERS 2024",
+
+    people: [
+
+      {
+        name: "Sachin Shukla",
+        rank: "Rank-2",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/2-Sachin_Shukla.png"
+      },
+
+      {
+        name: "Amiya Ghosh",
+        rank: "Rank-11",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/11%20Amiya%20Ghosh.png"
+      },
+
+      {
+        name: "Divyanshu Singh",
+        rank: "Rank-21",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/21-Divyanshu_Singh.png"
+      },
+
+      {
+        name: "Harsh Soni",
+        rank: "Rank-42",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/42%20Harsh%20Soni.png"
+      },
+
+      {
+        name: "Inderjeet Bhardwaj",
+        rank: "Rank-62",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/62-Inderjeet_Bhardwaj.png"
+      },
+
+      {
+        name: "Bishnu Aggarwal",
+        rank: "Rank-72",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Bishnu%20Aggarwal.png"
+      },
+
+      {
+        name: "Bhupendra Pratap Singh",
+        rank: "Rank-110",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Bhupendra%20Pratap%20Singh.png"
+      },
+
+      {
+        name: "DeepJyoti Kalita",
+        rank: "Rank-138",
+        image:
+        "https://www.dipsacademy.com/Content/img/sections/gate-rankers-2024/Deepjyoti%20Kalita.png"
+      }
+
+    ]
+
+  }
+
+};
+
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const rankerSlider =
+  document.getElementById("rankerSlider");
+
+const rankerPrev =
+  document.getElementById("rankerPrev");
+
+const rankerNext =
+  document.getElementById("rankerNext");
+
+const rankerViewAll =
+  document.getElementById("rankerViewAll");
+
+const rankerAllModal =
+  document.getElementById("rankerAllModal");
+
+const rankerAllClose =
+  document.getElementById("rankerAllClose");
+
+const rankerAllTitle =
+  document.getElementById("rankerAllTitle");
+
+const rankerAllGrid =
+  document.getElementById("rankerAllGrid");
+
+const rankerPhotoModal =
+  document.getElementById("rankerPhotoModal");
+
+const rankerPhotoClose =
+  document.getElementById("rankerPhotoClose");
+
+const rankerLargePhoto =
+  document.getElementById("rankerLargePhoto");
+
+const rankerLargeName =
+  document.getElementById("rankerLargeName");
+
+const rankerLargeRank =
+  document.getElementById("rankerLargeRank");
+
+
+
+/* =========================================================
+   CURRENT EXAM
+========================================================= */
+
+let currentRankerExam = "csir25";
+
+
+
+/* =========================================================
+   DISPLAY SLIDER
+========================================================= */
+
+function displayRankers(exam){
+
+  currentRankerExam = exam;
+
+  const data =
+    rankerData[exam];
+
+  rankerSlider.innerHTML = "";
+
+  data.people.forEach(person => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "ranker-card";
+
+    card.innerHTML = `
+
+      <img
+        src="${person.image}"
+        alt="${person.name}"
+        loading="lazy"
+      >
+
+      <div class="ranker-card-info">
+
+        <p class="ranker-card-name">
+          ${person.name}
+        </p>
+
+        <p class="ranker-card-rank">
+          ${person.rank}
+        </p>
+
+      </div>
+
+    `;
+
+    card.onclick = function(){
+
+      openLargePhoto(person);
+
+    };
+
+    rankerSlider.appendChild(card);
+
+  });
+
+  rankerSlider.scrollLeft = 0;
+
+}
+
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+document
+.querySelectorAll(".ranker-tab")
+.forEach(tab => {
+
+  tab.addEventListener("click", function(){
+
+    document
+    .querySelectorAll(".ranker-tab")
+    .forEach(t =>
+      t.classList.remove("active")
+    );
+
+    this.classList.add("active");
+
+    displayRankers(
+      this.dataset.exam
+    );
+
+  });
+
+});
+
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+rankerNext.onclick = function(){
+
+  const card =
+    rankerSlider.querySelector(".ranker-card");
+
+  if(!card) return;
+
+  rankerSlider.scrollBy({
+
+    left:
+      card.offsetWidth + 20,
+
+    behavior: "smooth"
+
+  });
+
+};
+
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+rankerPrev.onclick = function(){
+
+  const card =
+    rankerSlider.querySelector(".ranker-card");
+
+  if(!card) return;
+
+  rankerSlider.scrollBy({
+
+    left:
+      -(card.offsetWidth + 20),
+
+    behavior: "smooth"
+
+  });
+
+};
+
+
+
+/* =========================================================
+   AUTO SLIDER
+========================================================= */
+
+let rankerAutoSlider =
+  setInterval(function(){
+
+    const card =
+      rankerSlider.querySelector(".ranker-card");
+
+    if(!card) return;
+
+    const maxScroll =
+      rankerSlider.scrollWidth -
+      rankerSlider.clientWidth;
+
+    if(
+      rankerSlider.scrollLeft >=
+      maxScroll - 5
+    ){
+
+      rankerSlider.scrollTo({
+
+        left: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }else{
+
+      rankerSlider.scrollBy({
+
+        left:
+          card.offsetWidth + 20,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+  },3500);
+
+
+
+/* =========================================================
+   VIEW ALL
+========================================================= */
+
+rankerViewAll.onclick =
+function(){
+
+  const data =
+    rankerData[currentRankerExam];
+
+  rankerAllTitle.textContent =
+    data.title;
+
+  rankerAllGrid.innerHTML = "";
+
+  data.people.forEach(person => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "ranker-all-card";
+
+    card.innerHTML = `
+
+      <img
+        src="${person.image}"
+        alt="${person.name}"
+        loading="lazy"
+      >
+
+      <div class="ranker-all-info">
+
+        <strong>
+          ${person.name}
+        </strong>
+
+        <span>
+          ${person.rank}
+        </span>
+
+      </div>
+
+    `;
+
+    card.onclick = function(){
+
+      openLargePhoto(person);
+
+    };
+
+    rankerAllGrid.appendChild(card);
+
+  });
+
+  rankerAllModal.classList.add("show");
+
+  document.body.style.overflow =
+    "hidden";
+
+};
+
+
+
+/* =========================================================
+   CLOSE ALL
+========================================================= */
+
+rankerAllClose.onclick =
+function(){
+
+  rankerAllModal.classList.remove("show");
+
+  document.body.style.overflow =
+    "";
+
+};
+
+
+
+rankerAllModal.onclick =
+function(e){
+
+  if(e.target === rankerAllModal){
+
+    rankerAllModal.classList.remove("show");
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+};
+
+
+
+/* =========================================================
+   LARGE PHOTO
+========================================================= */
+
+function openLargePhoto(person){
+
+  rankerLargePhoto.src =
+    person.image;
+
+  rankerLargeName.textContent =
+    person.name;
+
+  rankerLargeRank.textContent =
+    person.rank;
+
+  rankerPhotoModal.classList.add("show");
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+
+/* =========================================================
+   CLOSE PHOTO
+========================================================= */
+
+rankerPhotoClose.onclick =
+function(){
+
+  rankerPhotoModal.classList.remove("show");
+
+  rankerLargePhoto.src = "";
+
+  document.body.style.overflow =
+    "";
+
+};
+
+
+
+rankerPhotoModal.onclick =
+function(e){
+
+  if(e.target === rankerPhotoModal){
+
+    rankerPhotoModal.classList.remove("show");
+
+    rankerLargePhoto.src = "";
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+};
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Escape"){
+
+      rankerAllModal.classList.remove("show");
+
+      rankerPhotoModal.classList.remove("show");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+displayRankers("csir25");
+
+</script>
