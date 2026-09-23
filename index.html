@@ -338,61 +338,49 @@
                     <li><a href="#">📞 Contact Us</a></li>
                 </ul>
 <!-- =========================================================
-     TOP RANKERS
+     LIFE AT DIPS GALLERY
 ========================================================= -->
 
-<section class="TR-section" id="TRSection">
+<section class="DIPS-LIFE" id="DipsLifeGallery">
 
-  <div class="TR-background"></div>
+  <!-- BACKGROUND -->
+  <div class="DIPS-LIFE-bg"></div>
 
-  <div class="TR-content">
+  <div class="DIPS-LIFE-inner">
 
-    <h2 class="TR-title">Top Rankers</h2>
+    <!-- HEADING -->
+    <div class="DIPS-LIFE-heading">
 
-    <!-- EXAM TABS -->
-    <div class="TR-tabs">
+      <h2>LIFE AT DIPS</h2>
 
-      <button class="TR-tab TR-active" data-exam="csir25">
-        CSIR NET JUNE 25
-      </button>
-
-      <button class="TR-tab" data-exam="csir24dec">
-        CSIR NET DEC 24
-      </button>
-
-      <button class="TR-tab" data-exam="jam25">
-        IIT JAM 25
-      </button>
-
-      <button class="TR-tab" data-exam="gate25">
-        GATE 25
-      </button>
-
-      <button class="TR-tab" data-exam="csir24june">
-        CSIR NET JUNE 24
-      </button>
-
-      <button class="TR-tab" data-exam="jam24">
-        IIT JAM 24
-      </button>
-
-      <button class="TR-tab" data-exam="gate24">
-        GATE 24
-      </button>
+      <span></span>
 
     </div>
 
 
     <!-- SLIDER -->
-    <div class="TR-slider-area">
+    <div class="DIPS-LIFE-slider-wrap">
 
-      <button class="TR-arrow TR-left" id="TRPrev">
+      <button
+        class="DIPS-LIFE-arrow DIPS-LIFE-prev"
+        id="DipsLifePrev"
+        aria-label="Previous"
+      >
         &#10094;
       </button>
 
-      <div class="TR-slider" id="TRSlider"></div>
 
-      <button class="TR-arrow TR-right" id="TRNext">
+      <div
+        class="DIPS-LIFE-slider"
+        id="DipsLifeSlider"
+      ></div>
+
+
+      <button
+        class="DIPS-LIFE-arrow DIPS-LIFE-next"
+        id="DipsLifeNext"
+        aria-label="Next"
+      >
         &#10095;
       </button>
 
@@ -400,8 +388,11 @@
 
 
     <!-- VIEW ALL -->
-    <button class="TR-view-all" id="TRViewAll">
-      View All Top Rankers
+    <button
+      class="DIPS-LIFE-viewall"
+      id="DipsLifeViewAll"
+    >
+      View Our Picture Gallery
     </button>
 
   </div>
@@ -411,20 +402,31 @@
 
 
 <!-- =========================================================
-     ALL TOPPERS
+     ALL PICTURES POPUP
 ========================================================= -->
 
-<div class="TR-all-overlay" id="TRAllOverlay">
+<div
+  class="DIPS-LIFE-all-overlay"
+  id="DipsLifeAllOverlay"
+>
 
-  <div class="TR-all-window">
+  <div class="DIPS-LIFE-all-box">
 
-    <button class="TR-all-close" id="TRAllClose">
+    <button
+      class="DIPS-LIFE-close"
+      id="DipsLifeAllClose"
+    >
       &times;
     </button>
 
-    <h2 id="TRAllHeading"></h2>
 
-    <div class="TR-all-grid" id="TRAllGrid"></div>
+    <h2>Life at DIPS</h2>
+
+
+    <div
+      class="DIPS-LIFE-all-grid"
+      id="DipsLifeAllGrid"
+    ></div>
 
   </div>
 
@@ -433,26 +435,35 @@
 
 
 <!-- =========================================================
-     LARGE TOPPER
+     LARGE PHOTO POPUP
 ========================================================= -->
 
-<div class="TR-big-overlay" id="TRBigOverlay">
+<div
+  class="DIPS-LIFE-big-overlay"
+  id="DipsLifeBigOverlay"
+>
 
-  <div class="TR-big-card">
+  <div class="DIPS-LIFE-big-box">
 
-    <button class="TR-big-close" id="TRBigClose">
+    <button
+      class="DIPS-LIFE-big-close"
+      id="DipsLifeBigClose"
+    >
       &times;
     </button>
 
-    <img id="TRBigImage" src="" alt="Top Ranker">
 
-    <div class="TR-big-info">
+    <img
+      id="DipsLifeBigImage"
+      src=""
+      alt="DIPS Life"
+    />
 
-      <div id="TRBigName"></div>
 
-      <div id="TRBigRank"></div>
-
-    </div>
+    <div
+      class="DIPS-LIFE-photo-caption"
+      id="DipsLifeCaption"
+    ></div>
 
   </div>
 
@@ -463,70 +474,63 @@
 <style>
 
 /* =========================================================
-   MAIN SECTION
+   LIFE AT DIPS SECTION
 ========================================================= */
 
-.TR-section {
+.DIPS-LIFE {
 
   position: relative;
 
   width: 100%;
 
-  min-height: 390px;
+  min-height: 460px;
 
-  padding: 38px 20px 48px;
+  padding: 40px 20px 45px;
 
   overflow: hidden;
 
-  background: #222;
+  background: #111;
 
 }
 
 
-/* BACKGROUND */
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
 
-.TR-background {
+.DIPS-LIFE-bg {
 
   position: absolute;
 
   inset: 0;
 
   background-image:
-  url("1.png");
+    linear-gradient(
+      rgba(0,0,0,.67),
+      rgba(0,0,0,.72)
+    ),
+    url("images/life-at-dips/life-background.jpg");
 
   background-size: cover;
 
   background-position: center;
 
-  filter: none;
+  transform: scale(1.02);
 
 }
 
 
-/* DARK LAYER */
+/* =========================================================
+   CONTENT
+========================================================= */
 
-.TR-background::after {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background: rgba(8,20,18,.82);
-
-}
-
-
-/* CONTENT */
-
-.TR-content {
+.DIPS-LIFE-inner {
 
   position: relative;
 
-  z-index: 3;
+  z-index: 5;
 
-  max-width: 1100px;
+  max-width: 1120px;
 
   margin: auto;
 
@@ -534,100 +538,68 @@
 
 
 /* =========================================================
-   TITLE
+   HEADING
 ========================================================= */
 
-.TR-title {
+.DIPS-LIFE-heading {
 
-  margin: 0 0 17px;
+  margin-bottom: 55px;
+
+}
+
+
+.DIPS-LIFE-heading h2 {
+
+  margin: 0;
 
   color: #fff;
 
-  font-size: 29px;
+  font-size: 27px;
 
-  font-weight: 700;
+  font-weight: 400;
+
+  letter-spacing: .2px;
+
+}
+
+
+.DIPS-LIFE-heading span {
+
+  display: block;
+
+  width: 40px;
+
+  height: 2px;
+
+  margin-top: 10px;
+
+  background: #f5c400;
 
 }
 
 
 /* =========================================================
-   TABS
+   SLIDER
 ========================================================= */
 
-.TR-tabs {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 4px;
-
-  margin-bottom: 27px;
-
-}
-
-
-.TR-tab {
-
-  border: 0;
-
-  outline: 0;
-
-  padding: 10px 13px;
-
-  background: #ffe0cb;
-
-  color: #4d4d4d;
-
-  border-radius: 4px 4px 0 0;
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-}
-
-
-.TR-tab:hover {
-
-  background: #ffc49e;
-
-}
-
-
-.TR-tab.TR-active {
-
-  background: #f7a05e;
-
-  color: #fff;
-
-}
-
-
-/* =========================================================
-   SLIDER AREA
-========================================================= */
-
-.TR-slider-area {
+.DIPS-LIFE-slider-wrap {
 
   position: relative;
 
-  border: 1px solid rgba(255,255,255,.55);
+  width: 100%;
 
-  padding: 30px 48px 34px;
+  padding: 0 42px;
 
 }
 
 
-.TR-slider {
-
-  width: 100%;
+.DIPS-LIFE-slider {
 
   display: flex;
 
-  gap: 22px;
+  gap: 20px;
+
+  width: 100%;
 
   overflow-x: hidden;
 
@@ -635,52 +607,53 @@
 
   user-select: none;
 
+  -webkit-user-select: none;
+
 }
 
 
 /* =========================================================
-   TOPPER CARD
+   PHOTO CARD
 ========================================================= */
 
-.TR-card {
+.DIPS-LIFE-card {
 
-  flex: 0 0 calc(20% - 18px);
+  position: relative;
 
-  background: #ffe1c7;
+  flex: 0 0 calc(33.333% - 14px);
 
-  border: 1px solid rgba(255,255,255,.8);
+  height: 258px;
 
   overflow: hidden;
 
+  background: #000;
+
   cursor: pointer;
 
-  user-select: none;
+  border: 1px solid rgba(255,255,255,.15);
 
-  -webkit-user-select: none;
-
-  transition: transform .25s ease,
-              box-shadow .25s ease;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 
 }
 
 
-.TR-card:hover {
+.DIPS-LIFE-card:hover {
 
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 
   box-shadow:
-    0 10px 25px rgba(0,0,0,.38);
+    0 12px 30px rgba(0,0,0,.45);
 
 }
 
 
-/* PHOTO */
-
-.TR-card-photo {
+.DIPS-LIFE-card img {
 
   width: 100%;
 
-  height: 170px;
+  height: 100%;
 
   display: block;
 
@@ -692,40 +665,15 @@
 
   pointer-events: none;
 
-}
-
-
-/* INFO */
-
-.TR-card-info {
-
-  padding: 8px 5px 10px;
-
-  text-align: center;
+  transition:
+    transform .45s ease;
 
 }
 
 
-.TR-card-name {
+.DIPS-LIFE-card:hover img {
 
-  margin: 0;
-
-  color: #e97d32;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-}
-
-
-.TR-card-rank {
-
-  margin: 3px 0 0;
-
-  color: #555;
-
-  font-size: 12px;
+  transform: scale(1.04);
 
 }
 
@@ -734,7 +682,7 @@
    ARROWS
 ========================================================= */
 
-.TR-arrow {
+.DIPS-LIFE-arrow {
 
   position: absolute;
 
@@ -742,93 +690,99 @@
 
   transform: translateY(-50%);
 
-  width: 34px;
+  z-index: 20;
 
-  height: 34px;
+  width: 35px;
+
+  height: 35px;
 
   border: 0;
 
   outline: 0;
 
-  background: #f2a05e;
+  border-radius: 2px;
 
-  color: white;
+  background: rgba(0,0,0,.65);
 
-  font-size: 19px;
+  color: #fff;
+
+  font-size: 20px;
+
+  line-height: 35px;
 
   cursor: pointer;
 
-  z-index: 10;
-
-  border-radius: 3px;
+  transition: .2s;
 
 }
 
 
-.TR-arrow:hover {
+.DIPS-LIFE-arrow:hover {
 
-  background: #e57f31;
-
-}
-
-
-.TR-left {
-
-  left: 8px;
+  background: #f5a623;
 
 }
 
 
-.TR-right {
+.DIPS-LIFE-prev {
 
-  right: 8px;
+  left: 0;
+
+}
+
+
+.DIPS-LIFE-next {
+
+  right: 0;
 
 }
 
 
 /* =========================================================
-   VIEW ALL
+   VIEW ALL BUTTON
 ========================================================= */
 
-.TR-view-all {
+.DIPS-LIFE-viewall {
 
   display: block;
 
-  margin: 23px auto 0;
+  margin: 25px auto 0;
 
-  padding: 10px 21px;
+  padding: 9px 17px;
 
   border: 0;
 
+  border-radius: 2px;
+
   outline: 0;
 
-  border-radius: 4px;
+  background: #f39a20;
 
-  background: #f3a05e;
+  color: #fff;
 
-  color: white;
+  font-size: 13px;
 
-  font-size: 12px;
-
-  font-weight: 600;
+  font-weight: 500;
 
   cursor: pointer;
+
+  transition: .2s;
 
 }
 
 
-.TR-view-all:hover {
+.DIPS-LIFE-viewall:hover {
 
-  background: #e47e30;
+  background: #e4830a;
 
 }
 
 
 /* =========================================================
-   ALL TOPPERS OVERLAY
+   ALL PHOTOS OVERLAY
 ========================================================= */
 
-.TR-all-overlay {
+.DIPS-LIFE-all-overlay {
 
   position: fixed !important;
 
@@ -838,9 +792,7 @@
 
   height: 100% !important;
 
-  background: rgba(0,0,0,.88) !important;
-
-  z-index: 999999 !important;
+  z-index: 999990 !important;
 
   display: none;
 
@@ -848,17 +800,23 @@
 
   overflow-y: auto;
 
+  background: rgba(0,0,0,.90);
+
 }
 
 
-.TR-all-overlay.TR-show {
+.DIPS-LIFE-all-overlay.DIPS-LIFE-show {
 
   display: block !important;
 
 }
 
 
-.TR-all-window {
+/* =========================================================
+   ALL PHOTOS BOX
+========================================================= */
+
+.DIPS-LIFE-all-box {
 
   position: relative;
 
@@ -866,31 +824,33 @@
 
   margin: auto;
 
-  padding: 38px 25px 45px;
+  padding: 35px 25px 40px;
 
   background: #fff;
 
-  border-radius: 7px;
+  border-radius: 4px;
 
 }
 
 
-.TR-all-window h2 {
+.DIPS-LIFE-all-box h2 {
 
-  margin: 0 0 28px;
-
-  text-align: center;
+  margin: 0 0 25px;
 
   color: #333;
 
-  font-size: 24px;
+  text-align: center;
+
+  font-size: 25px;
+
+  font-weight: 600;
 
 }
 
 
 /* CLOSE */
 
-.TR-all-close {
+.DIPS-LIFE-close {
 
   position: absolute;
 
@@ -906,9 +866,9 @@
 
   border-radius: 50%;
 
-  background: #e97d32;
+  background: #f39a20;
 
-  color: white;
+  color: #fff;
 
   font-size: 27px;
 
@@ -919,50 +879,40 @@
 }
 
 
-/* GRID */
+/* =========================================================
+   ALL GRID
+========================================================= */
 
-.TR-all-grid {
+.DIPS-LIFE-all-grid {
 
   display: grid;
 
   grid-template-columns:
-    repeat(4,1fr);
+    repeat(4, 1fr);
 
-  gap: 20px;
+  gap: 15px;
 
 }
 
 
-.TR-all-card {
+.DIPS-LIFE-all-card {
 
-  background: #ffe1c7;
-
-  border: 1px solid #ddd;
+  height: 210px;
 
   overflow: hidden;
 
+  background: #111;
+
   cursor: pointer;
 
-  transition: .25s;
-
 }
 
 
-.TR-all-card:hover {
-
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 9px 22px rgba(0,0,0,.2);
-
-}
-
-
-.TR-all-card img {
+.DIPS-LIFE-all-card img {
 
   width: 100%;
 
-  height: 220px;
+  height: 100%;
 
   display: block;
 
@@ -972,47 +922,23 @@
 
   -webkit-user-drag: none;
 
-}
-
-
-.TR-all-info {
-
-  text-align: center;
-
-  padding: 9px;
+  transition: transform .3s ease;
 
 }
 
 
-.TR-all-info strong {
+.DIPS-LIFE-all-card:hover img {
 
-  display: block;
-
-  color: #e97d32;
-
-  font-size: 14px;
-
-}
-
-
-.TR-all-info span {
-
-  display: block;
-
-  margin-top: 3px;
-
-  color: #555;
-
-  font-size: 12px;
+  transform: scale(1.05);
 
 }
 
 
 /* =========================================================
-   BIG PHOTO POPUP
+   LARGE PHOTO POPUP
 ========================================================= */
 
-.TR-big-overlay {
+.DIPS-LIFE-big-overlay {
 
   position: fixed !important;
 
@@ -1021,8 +947,6 @@
   width: 100% !important;
 
   height: 100% !important;
-
-  background: rgba(0,0,0,.93) !important;
 
   z-index: 1000000 !important;
 
@@ -1034,55 +958,58 @@
 
   padding: 20px;
 
+  background: rgba(0,0,0,.94);
+
 }
 
 
-.TR-big-overlay.TR-show {
+.DIPS-LIFE-big-overlay.DIPS-LIFE-show {
 
   display: flex !important;
 
 }
 
 
-/* BIG CARD */
+/* =========================================================
+   BIG PHOTO BOX
+========================================================= */
 
-.TR-big-card {
+.DIPS-LIFE-big-box {
 
   position: relative;
 
-  width: min(520px, 92vw);
+  width: min(1100px, 94vw);
 
-  max-height: 92vh;
+  max-height: 94vh;
 
-  padding: 12px;
+  padding: 8px;
 
-  background: #ffe1c7;
-
-  border-radius: 5px;
+  background: #111;
 
   box-shadow:
-    0 20px 70px rgba(0,0,0,.7);
+    0 20px 70px rgba(0,0,0,.8);
 
-  animation: TRPopup .22s ease;
+  animation:
+    DipsLifeZoom .2s ease;
 
 }
 
 
-@keyframes TRPopup {
+@keyframes DipsLifeZoom {
 
   from {
 
-    transform: scale(.88);
-
     opacity: 0;
+
+    transform: scale(.92);
 
   }
 
   to {
 
-    transform: scale(1);
-
     opacity: 1;
+
+    transform: scale(1);
 
   }
 
@@ -1091,19 +1018,17 @@
 
 /* BIG IMAGE */
 
-.TR-big-card img {
+.DIPS-LIFE-big-box img {
 
   width: 100%;
 
-  max-height: 72vh;
+  max-height: 86vh;
 
   display: block;
 
   object-fit: contain;
 
-  background: #eee;
-
-  border: 1px solid #ddd;
+  background: #111;
 
   user-select: none;
 
@@ -1112,48 +1037,17 @@
 }
 
 
-/* BIG INFO */
-
-.TR-big-info {
-
-  text-align: center;
-
-  padding: 10px 5px 5px;
-
-}
-
-
-#TRBigName {
-
-  color: #e97d32;
-
-  font-size: 20px;
-
-  font-weight: 700;
-
-}
-
-
-#TRBigRank {
-
-  margin-top: 3px;
-
-  color: #555;
-
-  font-size: 15px;
-
-}
-
-
 /* CLOSE BIG */
 
-.TR-big-close {
+.DIPS-LIFE-big-close {
 
   position: absolute;
 
-  top: -16px;
+  top: -17px;
 
-  right: -16px;
+  right: -17px;
+
+  z-index: 20;
 
   width: 42px;
 
@@ -1163,7 +1057,7 @@
 
   border-radius: 50%;
 
-  background: white;
+  background: #fff;
 
   color: #222;
 
@@ -1173,7 +1067,22 @@
 
   cursor: pointer;
 
-  z-index: 20;
+}
+
+
+/* CAPTION */
+
+.DIPS-LIFE-photo-caption {
+
+  display: none;
+
+  padding: 8px;
+
+  color: #fff;
+
+  text-align: center;
+
+  font-size: 13px;
 
 }
 
@@ -1184,13 +1093,13 @@
 
 @media(max-width:900px){
 
-  .TR-card {
+  .DIPS-LIFE-card {
 
-    flex: 0 0 calc(33.333% - 15px);
+    flex: 0 0 calc(50% - 10px);
 
   }
 
-  .TR-all-grid {
+  .DIPS-LIFE-all-grid {
 
     grid-template-columns:
       repeat(3,1fr);
@@ -1206,123 +1115,108 @@
 
 @media(max-width:600px){
 
-  .TR-section {
+  .DIPS-LIFE {
 
-    padding: 30px 10px 40px;
-
-  }
-
-  .TR-title {
-
-    font-size: 24px;
+    padding:
+      32px 10px 40px;
 
   }
 
-  .TR-tabs {
 
-    flex-wrap: nowrap;
+  .DIPS-LIFE-heading {
 
-    overflow-x: auto;
-
-    scrollbar-width: none;
+    margin-bottom: 35px;
 
   }
 
-  .TR-tabs::-webkit-scrollbar {
 
-    display: none;
+  .DIPS-LIFE-heading h2 {
 
-  }
-
-  .TR-tab {
-
-    flex-shrink: 0;
-
-    white-space: nowrap;
-
-    font-size: 10px;
-
-    padding: 9px 10px;
+    font-size: 23px;
 
   }
 
-  .TR-slider-area {
 
-    padding: 22px 35px 28px;
+  .DIPS-LIFE-slider-wrap {
+
+    padding: 0 32px;
 
   }
 
-  .TR-slider {
+
+  .DIPS-LIFE-slider {
 
     gap: 12px;
 
   }
 
-  .TR-card {
 
-    flex: 0 0 calc(50% - 6px);
+  .DIPS-LIFE-card {
 
-  }
+    flex: 0 0 100%;
 
-  .TR-card-photo {
-
-    height: 155px;
+    height: 235px;
 
   }
 
-  .TR-all-grid {
+
+  .DIPS-LIFE-arrow {
+
+    width: 30px;
+
+    height: 32px;
+
+    line-height: 32px;
+
+  }
+
+
+  .DIPS-LIFE-all-box {
+
+    padding:
+      35px 12px 25px;
+
+  }
+
+
+  .DIPS-LIFE-all-grid {
 
     grid-template-columns:
       repeat(2,1fr);
 
-    gap: 12px;
+    gap: 9px;
 
   }
 
-  .TR-all-card img {
 
-    height: 180px;
+  .DIPS-LIFE-all-card {
 
-  }
-
-  .TR-big-card {
-
-    width: 92vw;
-
-    padding: 8px;
+    height: 145px;
 
   }
 
-  .TR-big-card img {
 
-    max-height: 70vh;
+  .DIPS-LIFE-big-box {
+
+    width: 96vw;
+
+    padding: 5px;
 
   }
 
-  .TR-big-close {
+
+  .DIPS-LIFE-big-box img {
+
+    max-height: 82vh;
+
+  }
+
+
+  .DIPS-LIFE-big-close {
 
     top: -10px;
 
-    right: -8px;
-
-  }
-
-}
-
-
-/* VERY SMALL */
-
-@media(max-width:380px){
-
-  .TR-card {
-
-    flex: 0 0 100%;
-
-  }
-
-  .TR-all-grid {
-
-    grid-template-columns: 1fr;
+    right: -7px;
 
   }
 
@@ -1335,340 +1229,72 @@
 <script>
 
 /* =========================================================
-   TOP RANKERS DATA
+   LIFE AT DIPS PHOTOS
 ========================================================= */
 
-const TRData = {
+const DipsLifePhotos = [
 
-  csir25: {
-
-    title: "CSIR NET RANKERS JUNE 2025",
-
-    people: [
-
-      {
-        name: "Poornima",
-        rank: "Rank-38",
-        image: "1.png"
-      },
-
-      {
-        name: "Nimesh Bhatt",
-        rank: "Rank-46",
-        image: "2.png"
-      },
-
-      {
-        name: "Ritik Agarwal",
-        rank: "Rank-47",
-        image: "images/rankers/csir-june-25/ritik-agarwal.jpg"
-      },
-
-      {
-        name: "Nisha Yadav",
-        rank: "Rank-66",
-        image: "images/rankers/csir-june-25/nisha-yadav.jpg"
-      },
-
-      {
-        name: "Jawahar Singh",
-        rank: "Rank-73",
-        image: "images/rankers/csir-june-25/jawahar-singh.jpg"
-      },
-
-      {
-        name: "Saumyaranjan Das",
-        rank: "Rank-73",
-        image: "images/rankers/csir-june-25/saumyanarayan-das.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "1.png"
   },
 
-
-  csir24dec: {
-
-    title: "CSIR NET RANKERS DEC 2024",
-
-    people: [
-
-      {
-        name: "Roshan Kumar Maurya",
-        rank: "Rank-9",
-        image: "images/rankers/csir-dec-24/roshan-kumar-maurya.jpg"
-      },
-
-      {
-        name: "Pankaj Kumar Samal",
-        rank: "Rank-15",
-        image: "images/rankers/csir-dec-24/pankaj-kumar-samal.jpg"
-      },
-
-      {
-        name: "Shafiya Ansari",
-        rank: "Rank-17",
-        image: "images/rankers/csir-dec-24/shafiya-ansari.jpg"
-      },
-
-      {
-        name: "Pravin Yadav",
-        rank: "Rank-18",
-        image: "images/rankers/csir-dec-24/pravin-yadav.jpg"
-      },
-
-      {
-        name: "Tarun Nirwan",
-        rank: "Rank-18",
-        image: "images/rankers/csir-dec-24/tarun-nirwan.jpg"
-      },
-
-      {
-        name: "Tanishka Singh",
-        rank: "Rank-28",
-        image: "images/rankers/csir-dec-24/tanishka-singh.jpg"
-      },
-
-      {
-        name: "Aaina Dalal",
-        rank: "Rank-30",
-        image: "images/rankers/csir-dec-24/aaina-dalal.jpg"
-      },
-
-      {
-        name: "Ananya Tripathi",
-        rank: "Rank-30",
-        image: "images/rankers/csir-dec-24/ananya-tripathi.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "2.png"
   },
 
-
-  jam25: {
-
-    title: "IIT JAM RANKERS 2025",
-
-    people: [
-
-      {
-        name: "Vikas Choudhary",
-        rank: "Rank-1",
-        image: "images/rankers/jam-25/vikas-choudhary.jpg"
-      },
-
-      {
-        name: "Gaurav Verma",
-        rank: "Rank-2",
-        image: "images/rankers/jam-25/gaurav-verma.jpg"
-      },
-
-      {
-        name: "Mihir Shaunak Jawalkar",
-        rank: "Rank-3",
-        image: "images/rankers/jam-25/mihir-jawalkar.jpg"
-      },
-
-      {
-        name: "Topper 4",
-        rank: "Rank-10",
-        image: "images/rankers/jam-25/topper-4.jpg"
-      },
-
-      {
-        name: "Topper 5",
-        rank: "Rank-15",
-        image: "images/rankers/jam-25/topper-5.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "images/life-at-dips/life-03.jpg"
   },
 
-
-  gate25: {
-
-    title: "GATE RANKERS 2025",
-
-    people: [
-
-      {
-        name: "Topper 1",
-        rank: "Rank-75",
-        image: "images/rankers/gate-25/topper-1.jpg"
-      },
-
-      {
-        name: "Topper 2",
-        rank: "Rank-80",
-        image: "images/rankers/gate-25/topper-2.jpg"
-      },
-
-      {
-        name: "Topper 3",
-        rank: "Rank-103",
-        image: "images/rankers/gate-25/topper-3.jpg"
-      },
-
-      {
-        name: "Topper 4",
-        rank: "Rank-124",
-        image: "images/rankers/gate-25/topper-4.jpg"
-      },
-
-      {
-        name: "Topper 5",
-        rank: "Rank-167",
-        image: "images/rankers/gate-25/topper-5.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "images/life-at-dips/life-04.jpg"
   },
 
-
-  csir24june: {
-
-    title: "CSIR NET RANKERS JUNE 2024",
-
-    people: [
-
-      {
-        name: "S.K. Shorain",
-        rank: "Rank-1",
-        image: "images/rankers/csir-june-24/sk-shorain.jpg"
-      },
-
-      {
-        name: "Kanika Goyal",
-        rank: "Rank-25",
-        image: "images/rankers/csir-june-24/kanika-goyal.jpg"
-      },
-
-      {
-        name: "Vineet Hooda",
-        rank: "Rank-34",
-        image: "images/rankers/csir-june-24/vineet-hooda.jpg"
-      },
-
-      {
-        name: "Ashish Kumar",
-        rank: "Rank-40",
-        image: "images/rankers/csir-june-24/ashish-kumar.jpg"
-      },
-
-      {
-        name: "Sonal",
-        rank: "Rank-40",
-        image: "images/rankers/csir-june-24/sonal.jpg"
-      },
-
-      {
-        name: "Nitesh",
-        rank: "Rank-45",
-        image: "images/rankers/csir-june-24/nitesh.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "images/life-at-dips/life-05.jpg"
   },
 
-
-  jam24: {
-
-    title: "IIT JAM RANKERS 2024",
-
-    people: [
-
-      {
-        name: "Astha Jain",
-        rank: "Rank-12",
-        image: "images/rankers/jam-24/astha-jain.jpg"
-      },
-
-      {
-        name: "Naresh",
-        rank: "Rank-13",
-        image: "images/rankers/jam-24/naresh.jpg"
-      },
-
-      {
-        name: "Digraj Panda",
-        rank: "Rank-17",
-        image: "images/rankers/jam-24/digraj-panda.jpg"
-      },
-
-      {
-        name: "Vikas Choudhary",
-        rank: "Rank-25",
-        image: "images/rankers/jam-24/vikas-choudhary.jpg"
-      },
-
-      {
-        name: "Sohan Manna",
-        rank: "Rank-26",
-        image: "images/rankers/jam-24/sohan-manna.jpg"
-      },
-
-      {
-        name: "Nishant Kumar Verma",
-        rank: "Rank-38",
-        image: "images/rankers/jam-24/nishant-verma.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "images/life-at-dips/life-06.jpg"
   },
 
+  {
+    image:
+      "images/life-at-dips/life-07.jpg"
+  },
 
-  gate24: {
+  {
+    image:
+      "images/life-at-dips/life-08.jpg"
+  },
 
-    title: "GATE RANKERS 2024",
+  {
+    image:
+      "images/life-at-dips/life-09.jpg"
+  },
 
-    people: [
+  {
+    image:
+      "images/life-at-dips/life-10.jpg"
+  },
 
-      {
-        name: "Sachin Shukla",
-        rank: "Rank-2",
-        image: "images/rankers/gate-24/sachin-shukla.jpg"
-      },
+  {
+    image:
+      "images/life-at-dips/life-11.jpg"
+  },
 
-      {
-        name: "Amiya Ghosh",
-        rank: "Rank-11",
-        image: "images/rankers/gate-24/amiya-ghosh.jpg"
-      },
-
-      {
-        name: "Divyanshu Singh",
-        rank: "Rank-21",
-        image: "images/rankers/gate-24/divyanshu-singh.jpg"
-      },
-
-      {
-        name: "Harsh Soni",
-        rank: "Rank-42",
-        image: "images/rankers/gate-24/harsh-soni.jpg"
-      },
-
-      {
-        name: "Inderjeet Bhardwaj",
-        rank: "Rank-62",
-        image: "images/rankers/gate-24/inderjeet.jpg"
-      },
-
-      {
-        name: "Bishnu Aggarwal",
-        rank: "Rank-72",
-        image: "images/rankers/gate-24/bishnu.jpg"
-      }
-
-    ]
-
+  {
+    image:
+      "images/life-at-dips/life-12.jpg"
   }
 
-};
+];
 
 
 
@@ -1676,375 +1302,84 @@ const TRData = {
    ELEMENTS
 ========================================================= */
 
-const TRSlider =
-  document.getElementById("TRSlider");
-
-const TRPrev =
-  document.getElementById("TRPrev");
-
-const TRNext =
-  document.getElementById("TRNext");
-
-const TRViewAll =
-  document.getElementById("TRViewAll");
-
-const TRAllOverlay =
-  document.getElementById("TRAllOverlay");
-
-const TRAllClose =
-  document.getElementById("TRAllClose");
-
-const TRAllHeading =
-  document.getElementById("TRAllHeading");
-
-const TRAllGrid =
-  document.getElementById("TRAllGrid");
-
-const TRBigOverlay =
-  document.getElementById("TRBigOverlay");
-
-const TRBigClose =
-  document.getElementById("TRBigClose");
-
-const TRBigImage =
-  document.getElementById("TRBigImage");
-
-const TRBigName =
-  document.getElementById("TRBigName");
-
-const TRBigRank =
-  document.getElementById("TRBigRank");
-
-
-let TRCurrentExam = "csir25";
-
-
-
-/* =========================================================
-   LOAD CARDS
-========================================================= */
-
-function TRLoad(exam){
-
-  TRCurrentExam = exam;
-
-  const data = TRData[exam];
-
-  TRSlider.innerHTML = "";
-
-  data.people.forEach((person, index) => {
-
-    const card =
-      document.createElement("div");
-
-    card.className = "TR-card";
-
-    card.setAttribute(
-      "data-index",
-      index
-    );
-
-    card.innerHTML = `
-
-      <img
-        class="TR-card-photo"
-        src="${person.image}"
-        alt="${person.name}"
-        draggable="false"
-      >
-
-      <div class="TR-card-info">
-
-        <p class="TR-card-name">
-          ${person.name}
-        </p>
-
-        <p class="TR-card-rank">
-          ${person.rank}
-        </p>
-
-      </div>
-
-    `;
-
-
-    /* CLICK CARD */
-
-    card.addEventListener(
-      "click",
-      function(e){
-
-        e.preventDefault();
-
-        e.stopPropagation();
-
-        TROpenBig(person);
-
-      }
-    );
-
-
-    TRSlider.appendChild(card);
-
-  });
-
-
-  TRSlider.scrollLeft = 0;
-
-}
-
-
-
-/* =========================================================
-   TABS
-========================================================= */
-
-document
-.querySelectorAll(".TR-tab")
-.forEach(function(tab){
-
-  tab.addEventListener(
-    "click",
-    function(){
-
-      document
-      .querySelectorAll(".TR-tab")
-      .forEach(function(t){
-
-        t.classList.remove("TR-active");
-
-      });
-
-
-      this.classList.add("TR-active");
-
-      TRLoad(
-        this.getAttribute("data-exam")
-      );
-
-    }
+const DipsLifeSlider =
+  document.getElementById(
+    "DipsLifeSlider"
   );
 
-});
+const DipsLifePrev =
+  document.getElementById(
+    "DipsLifePrev"
+  );
 
+const DipsLifeNext =
+  document.getElementById(
+    "DipsLifeNext"
+  );
 
+const DipsLifeViewAll =
+  document.getElementById(
+    "DipsLifeViewAll"
+  );
 
-/* =========================================================
-   NEXT
-========================================================= */
+const DipsLifeAllOverlay =
+  document.getElementById(
+    "DipsLifeAllOverlay"
+  );
 
-TRNext.addEventListener(
-  "click",
-  function(){
+const DipsLifeAllClose =
+  document.getElementById(
+    "DipsLifeAllClose"
+  );
 
-    const card =
-      TRSlider.querySelector(".TR-card");
+const DipsLifeAllGrid =
+  document.getElementById(
+    "DipsLifeAllGrid"
+  );
 
-    if(!card) return;
+const DipsLifeBigOverlay =
+  document.getElementById(
+    "DipsLifeBigOverlay"
+  );
 
-    TRSlider.scrollBy({
+const DipsLifeBigClose =
+  document.getElementById(
+    "DipsLifeBigClose"
+  );
 
-      left:
-        card.getBoundingClientRect().width + 22,
-
-      behavior: "smooth"
-
-    });
-
-  }
-);
-
-
-
-/* =========================================================
-   PREVIOUS
-========================================================= */
-
-TRPrev.addEventListener(
-  "click",
-  function(){
-
-    const card =
-      TRSlider.querySelector(".TR-card");
-
-    if(!card) return;
-
-    TRSlider.scrollBy({
-
-      left:
-        -(card.getBoundingClientRect().width + 22),
-
-      behavior: "smooth"
-
-    });
-
-  }
-);
-
-
-
-/* =========================================================
-   AUTO SLIDER
-========================================================= */
-
-setInterval(function(){
-
-  const card =
-    TRSlider.querySelector(".TR-card");
-
-  if(!card) return;
-
-  const move =
-    card.getBoundingClientRect().width + 22;
-
-  const end =
-    TRSlider.scrollWidth -
-    TRSlider.clientWidth;
-
-
-  if(TRSlider.scrollLeft >= end - 5){
-
-    TRSlider.scrollTo({
-
-      left: 0,
-
-      behavior: "smooth"
-
-    });
-
-  }else{
-
-    TRSlider.scrollBy({
-
-      left: move,
-
-      behavior: "smooth"
-
-    });
-
-  }
-
-},3500);
-
-
-
-/* =========================================================
-   OPEN BIG PHOTO
-========================================================= */
-
-function TROpenBig(person){
-
-  TRBigImage.src = person.image;
-
-  TRBigName.textContent =
-    person.name;
-
-  TRBigRank.textContent =
-    person.rank;
-
-
-  TRBigOverlay.classList.add(
-    "TR-show"
+const DipsLifeBigImage =
+  document.getElementById(
+    "DipsLifeBigImage"
   );
 
 
-  document.body.style.overflow =
-    "hidden";
-
-}
-
-
 
 /* =========================================================
-   CLOSE BIG PHOTO
+   CREATE SLIDER
 ========================================================= */
 
-function TRCloseBig(){
+function DipsLifeLoad(){
 
-  TRBigOverlay.classList.remove(
-    "TR-show"
-  );
-
-  TRBigImage.src = "";
-
-  document.body.style.overflow =
-    "";
-
-}
+  DipsLifeSlider.innerHTML = "";
 
 
-TRBigClose.addEventListener(
-  "click",
-  TRCloseBig
-);
-
-
-/* CLICK OUTSIDE */
-
-TRBigOverlay.addEventListener(
-  "click",
-  function(e){
-
-    if(
-      e.target === TRBigOverlay
-    ){
-
-      TRCloseBig();
-
-    }
-
-  }
-);
-
-
-
-/* =========================================================
-   VIEW ALL
-========================================================= */
-
-TRViewAll.addEventListener(
-  "click",
-  function(){
-
-    const data =
-      TRData[TRCurrentExam];
-
-
-    TRAllHeading.textContent =
-      data.title;
-
-
-    TRAllGrid.innerHTML = "";
-
-
-    data.people.forEach(function(person){
+  DipsLifePhotos.forEach(
+    function(photo,index){
 
       const card =
         document.createElement("div");
 
       card.className =
-        "TR-all-card";
+        "DIPS-LIFE-card";
 
 
       card.innerHTML = `
 
         <img
-          src="${person.image}"
-          alt="${person.name}"
+          src="${photo.image}"
+          alt="Life at DIPS ${index + 1}"
           draggable="false"
         >
-
-        <div class="TR-all-info">
-
-          <strong>
-            ${person.name}
-          </strong>
-
-          <span>
-            ${person.rank}
-          </span>
-
-        </div>
 
       `;
 
@@ -2057,26 +1392,309 @@ TRViewAll.addEventListener(
 
           e.stopPropagation();
 
-          TRCloseAll();
-
-          setTimeout(function(){
-
-            TROpenBig(person);
-
-          },100);
+          DipsLifeOpenBig(
+            photo.image
+          );
 
         }
       );
 
 
-      TRAllGrid.appendChild(card);
+      DipsLifeSlider.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+DipsLifeNext.addEventListener(
+  "click",
+  function(){
+
+    const card =
+      DipsLifeSlider
+      .querySelector(
+        ".DIPS-LIFE-card"
+      );
+
+    if(!card) return;
+
+
+    const gap = 20;
+
+
+    DipsLifeSlider.scrollBy({
+
+      left:
+        card.getBoundingClientRect()
+        .width + gap,
+
+      behavior:
+        "smooth"
 
     });
 
+  }
+);
 
-    TRAllOverlay.classList.add(
-      "TR-show"
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+DipsLifePrev.addEventListener(
+  "click",
+  function(){
+
+    const card =
+      DipsLifeSlider
+      .querySelector(
+        ".DIPS-LIFE-card"
+      );
+
+    if(!card) return;
+
+
+    const gap = 20;
+
+
+    DipsLifeSlider.scrollBy({
+
+      left:
+        -(
+
+          card.getBoundingClientRect()
+          .width + gap
+
+        ),
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+);
+
+
+
+/* =========================================================
+   AUTO SLIDE
+========================================================= */
+
+setInterval(
+  function(){
+
+    const card =
+      DipsLifeSlider
+      .querySelector(
+        ".DIPS-LIFE-card"
+      );
+
+    if(!card) return;
+
+
+    const move =
+      card.getBoundingClientRect()
+      .width + 20;
+
+
+    const maxScroll =
+      DipsLifeSlider.scrollWidth -
+      DipsLifeSlider.clientWidth;
+
+
+    if(
+      DipsLifeSlider.scrollLeft
+      >= maxScroll - 5
+    ){
+
+      DipsLifeSlider.scrollTo({
+
+        left: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }
+    else{
+
+      DipsLifeSlider.scrollBy({
+
+        left: move,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+  },
+  3500
+);
+
+
+
+/* =========================================================
+   OPEN LARGE PHOTO
+========================================================= */
+
+function DipsLifeOpenBig(
+  image
+){
+
+  DipsLifeBigImage.src =
+    image;
+
+
+  DipsLifeBigOverlay
+    .classList
+    .add(
+      "DIPS-LIFE-show"
     );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+
+/* =========================================================
+   CLOSE LARGE PHOTO
+========================================================= */
+
+function DipsLifeCloseBig(){
+
+  DipsLifeBigOverlay
+    .classList
+    .remove(
+      "DIPS-LIFE-show"
+    );
+
+
+  DipsLifeBigImage.src =
+    "";
+
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+DipsLifeBigClose.addEventListener(
+  "click",
+  DipsLifeCloseBig
+);
+
+
+
+/* CLICK OUTSIDE */
+
+DipsLifeBigOverlay.addEventListener(
+  "click",
+  function(e){
+
+    if(
+      e.target ===
+      DipsLifeBigOverlay
+    ){
+
+      DipsLifeCloseBig();
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   VIEW ALL
+========================================================= */
+
+DipsLifeViewAll.addEventListener(
+  "click",
+  function(){
+
+    DipsLifeAllGrid.innerHTML =
+      "";
+
+
+    DipsLifePhotos.forEach(
+      function(photo,index){
+
+        const card =
+          document.createElement(
+            "div"
+          );
+
+        card.className =
+          "DIPS-LIFE-all-card";
+
+
+        card.innerHTML = `
+
+          <img
+            src="${photo.image}"
+            alt="Life at DIPS ${index + 1}"
+            draggable="false"
+          >
+
+        `;
+
+
+        card.addEventListener(
+          "click",
+          function(e){
+
+            e.preventDefault();
+
+            e.stopPropagation();
+
+
+            DipsLifeCloseAll();
+
+
+            setTimeout(
+              function(){
+
+                DipsLifeOpenBig(
+                  photo.image
+                );
+
+              },
+              100
+            );
+
+          }
+        );
+
+
+        DipsLifeAllGrid
+          .appendChild(card);
+
+      }
+    );
+
+
+    DipsLifeAllOverlay
+      .classList
+      .add(
+        "DIPS-LIFE-show"
+      );
 
 
     document.body.style.overflow =
@@ -2091,11 +1709,14 @@ TRViewAll.addEventListener(
    CLOSE ALL
 ========================================================= */
 
-function TRCloseAll(){
+function DipsLifeCloseAll(){
 
-  TRAllOverlay.classList.remove(
-    "TR-show"
-  );
+  DipsLifeAllOverlay
+    .classList
+    .remove(
+      "DIPS-LIFE-show"
+    );
+
 
   document.body.style.overflow =
     "";
@@ -2103,21 +1724,25 @@ function TRCloseAll(){
 }
 
 
-TRAllClose.addEventListener(
+DipsLifeAllClose.addEventListener(
   "click",
-  TRCloseAll
+  DipsLifeCloseAll
 );
 
 
-TRAllOverlay.addEventListener(
+
+/* CLICK OUTSIDE ALL */
+
+DipsLifeAllOverlay.addEventListener(
   "click",
   function(e){
 
     if(
-      e.target === TRAllOverlay
+      e.target ===
+      DipsLifeAllOverlay
     ){
 
-      TRCloseAll();
+      DipsLifeCloseAll();
 
     }
 
@@ -2127,18 +1752,20 @@ TRAllOverlay.addEventListener(
 
 
 /* =========================================================
-   ESC
+   ESC KEY
 ========================================================= */
 
 document.addEventListener(
   "keydown",
   function(e){
 
-    if(e.key === "Escape"){
+    if(
+      e.key === "Escape"
+    ){
 
-      TRCloseBig();
+      DipsLifeCloseBig();
 
-      TRCloseAll();
+      DipsLifeCloseAll();
 
     }
 
@@ -2151,6 +1778,6 @@ document.addEventListener(
    START
 ========================================================= */
 
-TRLoad("csir25");
+DipsLifeLoad();
 
 </script>
